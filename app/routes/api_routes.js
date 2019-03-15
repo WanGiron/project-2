@@ -1,10 +1,16 @@
 var daycare_data = require("../data_base/daycare_data.js");
+var express = require("express");
+//var router = express.Router();
 
 module.exports = (app) => {
     // Reqding All children in DB
-    app.get("/api/all", (req, res) => {
-        daycare_data.children.findAll({}).then((results) => {
-            res.json(results);
+    app.get("/", (req, res) => {
+        daycare_data.activities.findAll({}).then((results) => {
+            //var newData = parse(results);
+            res.render("index", {
+                data: results
+            })
+            console.log(results);
         });
     });
 
@@ -48,3 +54,4 @@ module.exports = (app) => {
         });
     });
 }
+
