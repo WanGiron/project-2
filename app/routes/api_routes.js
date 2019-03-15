@@ -1,6 +1,17 @@
 var daycare_data = require("../data_base/daycare_data.js");
+var application = require('express');
+var router = application.Router();
 
 module.exports = (app) => {
+
+    app.get('/', function (req, res) {
+        res.render('index');
+    });
+    // router.get('/', function (req, res) {
+    //     res.render('index');
+    // });
+
+
     // Reqding All children in DB
     app.get("/api/all", (req, res) => {
         daycare_data.children.findAll({}).then((results) => {
