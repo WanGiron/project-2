@@ -3,22 +3,30 @@ var express = require("express");
 //var router = express.Router();
 
 module.exports = (app) => {
+    //Administrator site //
+    app.get("/api/adiministrator", (req, res) => {
+        daycare_data.children.findAll({}).then((results) => {
+            //var newData = parse(results);
+            res.render("index", {
+                data: results
+            })
+            //console.log(results);
+        });
+    });
     // Reqding All children in DB
-    app.get("/", (req, res) => {
+    app.get("/api/all-activities", (req, res) => {
         daycare_data.activities.findAll({}).then((results) => {
             //var newData = parse(results);
             res.render("index", {
                 data: results
             })
-            console.log(results);
+            //console.log(results);
         });
     });
-
-    //Adding a New Child Into DB
+    //Adding a New Child Into DB for administrator site //
     app.post("/api/new/child", (req, res) => {
         console.log("daycare data:");
-        console.log(req.body);
-
+        //console.log(req.body);
         daycare_data.children.create({
             child_name: req.body.child_name,
             parent_name: req.body.parent_name
@@ -27,7 +35,7 @@ module.exports = (app) => {
         });
     });
 
-    //Adding a New Activities Into DB
+    //Adding a New Activities Into DB for administrator site
     app.post("/api/new/activity", (req, res) => {
         console.log("daycare data:");
         console.log(req.body);
@@ -51,6 +59,22 @@ module.exports = (app) => {
               }
         }).then((results) => {
             res.json(results);
+        });
+    });
+
+    
+// Findig one child for client site //
+    app.get("/api/client-site/:childName", (req, res) => {
+        daycare_data.activities.findAll({
+            where:{
+                child_name: req.params.childName
+            }
+        }).then((results) => {
+            //var newData = parse(results);
+            res.render("client", {
+                data: results
+            })
+            //console.log(results);
         });
     });
 }

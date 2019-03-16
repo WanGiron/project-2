@@ -1,6 +1,80 @@
+<h1>Children list</h1>
+<br>
+
 <ul>
     {{#each data}}
-<span><li><h2>{{child_name}}</h2></li>
-<li>{{activity_type}}</li></span>
+<li><h2>{{child_name}}</h2></li>
+{{!-- <li>{{activity_type}}</li> <span>{{activity_time}}</span> --}}
+{{!-- <li>{{activity_type}}</li> --}}
 {{/each}}
 </ul>
+
+<input id="add-child" type="text">
+<br>
+<input id="add-parent" type="text">
+<button id="get-one"> add child</button>
+<hr>
+<input id="add-child-name2" type="text">
+<br>
+<input id="add-activity" type="text">
+<button id="get-activity"> add activity</button>
+<button id="find-activities">Find Child activities</button>
+
+<script>
+$("#get-one").on("click", function(event) {
+    event.preventDefault();
+  var child = $("#add-child");
+  var parent = $("#add-parent");
+
+    // Make a newBook object
+    var newChild = {
+      child_name: child.val(),
+      parent_name: parent.val()   
+    };
+  
+    // Send an AJAX POST-request with jQuery
+    $.post("/api/new/child", newChild)
+      // On success, run the following code
+      .then(function(data) {
+        // Log the data we found
+        console.log(data);
+      });
+  
+    // Empty each input box by replacing the value with an empty string
+    child.val("");
+    parent.val("");
+  
+  });
+
+  $("#get-activity").on("click", function(event) {
+    event.preventDefault();
+  var child2 = $("#add-child-name2");
+  var activity = $("#add-activity");
+
+    // Make a newBook object
+    var newActivity = {
+      child_name: child2.val(),
+      activity_type: activity.val()   
+    };
+  
+    // Send an AJAX POST-request with jQuery
+    $.post("/api/new/activity", newActivity)
+      // On success, run the following code
+      .then(function(data) {
+        // Log the data we found
+        console.log(data);
+      });
+  
+    // Empty each input box by replacing the value with an empty string
+    child2.val("");
+    activity.val("");
+  
+  });
+// $("#find-acitivities").on("click", function(event) {
+//     var res = var child2 = $("#add-child-name2").val();
+//   $.get("/api/activity/:name"(req, res) =>{
+//       console.log('done');
+//   })
+//   }
+   
+</script>
