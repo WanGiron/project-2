@@ -25,7 +25,6 @@ $("#get-one").on("click", function(event) {
     event.preventDefault();
   var child = $("#add-child");
   var parent = $("#add-parent");
-
     // Make a newBook object
     var newChild = {
       child_name: child.val(),
@@ -45,12 +44,10 @@ $("#get-one").on("click", function(event) {
     parent.val("");
   
   });
-
   $("#get-activity").on("click", function(event) {
     event.preventDefault();
   var child2 = $("#add-child-name2");
   var activity = $("#add-activity");
-
     // Make a newBook object
     var newActivity = {
       child_name: child2.val(),
