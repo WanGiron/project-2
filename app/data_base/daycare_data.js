@@ -34,6 +34,7 @@ var activity = sequelize.define("activities", {
 var daycare_data = {
     children: child,
     activities: activity
+   
 }
 
 module.exports = daycare_data;

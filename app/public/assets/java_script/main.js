@@ -1,6 +1,11 @@
-// app.get("/", (req, res) => {
-//     daycare_data.children.findAll({}).then((res) => {
-//         res.json(results);
-//         console.log(res);
-//     });
-// });
+// //script for client site //
+// $("#submit-child-request").on("click", (event) =>{
+//     var myChild = $("#pull-child").val();
+
+//     $.get("/api/client-site/:" + myChild)
+//     .then(
+//       window.location = "/api/client-site/" + myChild 
+//     )
+
+// })
+// //-----------------------//

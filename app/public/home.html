@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- jQuery file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+    <script src="assets/java_script/main.js/"></script>
+    <title>child-care</title>
+</head>
+
+<body>
+    <a href="/api/adiministrator"> <button id="administrator"> administrator </button> </a>
+    <input type="text" id="pull-child"> <a> <button id="submit-child-request"> client site </button> </a>
+    <script>
+
+        
+        //script for client site //
+        $("#submit-child-request").on("click", (event) => {
+            var myChild = $("#pull-child").val();
+
+            $.get("/api/client-site/:" + myChild)
+                .then(
+                    window.location = "/api/client-site/" + myChild
+                )
+
+        })
+                   //-----------------------//
+
+    </script>
+</body>
+
+</html>
