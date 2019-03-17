@@ -1,21 +1,24 @@
+<h1>Daily activities</h1>
+
 <div id="title-here">
-<h1>{{data2}}</h1>
+    <h2>{{data2}}</h2>
     <ul>
         {{#each data}}
-        {{!-- <h2>{{child_name}}</h2> --}}
         <li>{{activity_type}}</li> <span>{{activity_time}}</span>
-        {{!-- <li>{{activity_type}}</li> --}}
         {{/each}}
     </ul>
 
-{{!-- </div>
-<h3 id="add-child-name2" value="{{data2}}">{{data2}}</h3>
-<br>
-<input id="add-activity" type="text">
-<button id="get-activity"> add activity</button> --}}
+</div>
 
-<div>
+
+
+<h3 id="add-child-name2" value="{{data2}}" hidden="true">{{data2}}</h3>
+<input id="add-activity" type="text">
+<button id="get-activity"> add activity</button>
+<a href="../administrator"><button>Go back</button></a>
+
+{{!-- <div>
 <h2 id="child-name-val">{{data2}}</h2>
 <input type="text" id="new-message">
 <button id="send-message">Submit</button>
-</div>
+</div> --}}

@@ -3,78 +3,34 @@
 
 <ul>
     {{#each data}}
-<li><h2>{{child_name}}</h2></li>
-{{!-- <li>{{activity_type}}</li> <span>{{activity_time}}</span> --}}
-{{!-- <li>{{activity_type}}</li> --}}
-{{/each}}
+    <li>
+        <h2 class="child-activity" value="{{child_name}}">{{child_name}}</h2>
+        <a href="/api/admin-activity-site/{{child_name}}"><button class="child-activity-info">Daily
+                Acitivities</button></a>
+        <a href="/api/admin-message-site/{{child_name}}"><button class="child-activity-info">messages</button></a>
+    </li>
+
+    {{!-- <li>{{activity_type}}</li> --}}
+    {{/each}}
 </ul>
 
+<a href="/api/adiministrator/messages"><button>messages</button></a>
+<br>
+<a href="/api/adiministrator"><button>Show children</button></a>
+<br>
+
+<div>
+    {{#each messageData}}
+    <h2>{{child_name}}</h2>
+    <p>{{message_from_parent}}</p>
+    {{/each}}
+</div>
 <input id="add-child" type="text">
 <br>
 <input id="add-parent" type="text">
 <button id="get-one"> add child</button>
 <hr>
-<input id="add-child-name2" type="text">
+<input id="child-name-activity" type="text">
 <br>
 <input id="add-activity" type="text">
-<button id="get-activity"> add activity</button>
-<button id="find-activities">Find Child activities</button>
-
-{{!-- <script>
-$("#get-one").on("click", function(event) {
-    event.preventDefault();
-  var child = $("#add-child");
-  var parent = $("#add-parent");
-
-    // Make a newBook object
-    var newChild = {
-      child_name: child.val(),
-      parent_name: parent.val()   
-    };
-  
-    // Send an AJAX POST-request with jQuery
-    $.post("/api/new/child", newChild)
-      // On success, run the following code
-      .then(function(data) {
-        // Log the data we found
-        console.log(data);
-      });
-  
-    // Empty each input box by replacing the value with an empty string
-    child.val("");
-    parent.val("");
-  
-  });
-
-  $("#get-activity").on("click", function(event) {
-    event.preventDefault();
-  var child2 = $("#add-child-name2");
-  var activity = $("#add-activity");
-
-    // Make a newBook object
-    var newActivity = {
-      child_name: child2.val(),
-      activity_type: activity.val()   
-    };
-  
-    // Send an AJAX POST-request with jQuery
-    $.post("/api/new/activity", newActivity)
-      // On success, run the following code
-      .then(function(data) {
-        // Log the data we found
-        console.log(data);
-      });
-  
-    // Empty each input box by replacing the value with an empty string
-    child2.val("");
-    activity.val("");
-  
-  });
-// $("#find-acitivities").on("click", function(event) {
-//     var res = var child2 = $("#add-child-name2").val();
-//   $.get("/api/activity/:name"(req, res) =>{
-//       console.log('done');
-//   })
-//   }
-   
-</script> --}}
+<button id="submit-activity"> add activity</button>
