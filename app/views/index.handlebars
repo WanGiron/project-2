@@ -1,80 +1,177 @@
-<h1>Children list</h1>
 <br>
-
-<ul>
-    {{#each data}}
-<li><h2>{{child_name}}</h2></li>
-{{!-- <li>{{activity_type}}</li> <span>{{activity_time}}</span> --}}
-{{!-- <li>{{activity_type}}</li> --}}
-{{/each}}
-</ul>
-
-<input id="add-child" type="text">
 <br>
-<input id="add-parent" type="text">
-<button id="get-one"> add child</button>
-<hr>
-<input id="add-child-name2" type="text">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-5 text-center">
+      <div class="row">
+        <div class="title-first title-box"><span class="letters">D</span></div>
+        <div class="title-second title-box"><span class="letters">A</span></div>
+        <div class="title-third title-box"><span class="letters">Y</span></div>
+        <div class="title-fourth title-box"><span class="letters">C</span></div>
+        <div class="title-fifth title-box"><span class="letters">A</span></div>
+        <div class="title-sixth title-box"><span class="letters">R</span></div>
+        <div class="title-seventh title-box"><span class="letters">E</span></div>
+        <!-- <div style="content:' ';"></div>
+                    <div class="title-eighth title-box"><span class="letters">C</span></div>
+                    <div class="title-ninth title-box"><span class="letters">E</span></div>
+                    <div class="title-tenth title-box"><span class="letters">N</span></div>
+                    <div class="title-ninth title-box"><span class="letters">T</span></div>
+                    <div class="title-tenth title-box"><span class="letters">E</span></div>
+                    <div class="title-tenth title-box"><span class="letters">R</span></div> -->
+      </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-3 text-center">
+      <h1>Admin Access Only</h1>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
 <br>
-<input id="add-activity" type="text">
-<button id="get-activity"> add activity</button>
-<button id="find-activities">Find Child activities</button>
+<br>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  {{!-- <a class="navbar-brand" href="#">Navbar</a> --}}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
 
-{{!-- <script>
-$("#get-one").on("click", function(event) {
-    event.preventDefault();
-  var child = $("#add-child");
-  var parent = $("#add-parent");
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#add-child">New Client</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#add-activity">Activity Update</a>
+      </li>
 
-    // Make a newBook object
-    var newChild = {
-      child_name: child.val(),
-      parent_name: parent.val()   
-    };
-  
-    // Send an AJAX POST-request with jQuery
-    $.post("/api/new/child", newChild)
-      // On success, run the following code
-      .then(function(data) {
-        // Log the data we found
-        console.log(data);
-      });
-  
-    // Empty each input box by replacing the value with an empty string
-    child.val("");
-    parent.val("");
-  
-  });
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-2 text-center ">
+      <h2> ID</h2>
+      <hr>
+      <div class="row">
+        <div class="col-12 text-center ">
+          <br>
+          <ol class="" style="list-style-type:none">
+            {{#each data}}
+            <li>
+              <h2>{{this.id}}</h2>
+              <br>
+            </li>
+            {{/each}}
+          </ol>
+        </div>
+      </div>
+    </div>
 
-  $("#get-activity").on("click", function(event) {
-    event.preventDefault();
-  var child2 = $("#add-child-name2");
-  var activity = $("#add-activity");
+    <div class="col-5 text-center ">
+      <h2>Children Name</h2>
+      <hr>
+      <div class="row">
+        <div class="col-12 text-justify ">
+          <br>
+          <ol class="" style="list-style-type:none">
+            {{#each data}}
+            <li>
+              <h2>{{child_name}}</h2>
+              <br>
+            </li>
+            {{/each}}
+          </ol>
+        </div>
+      </div>
+    </div>
 
-    // Make a newBook object
-    var newActivity = {
-      child_name: child2.val(),
-      activity_type: activity.val()   
-    };
-  
-    // Send an AJAX POST-request with jQuery
-    $.post("/api/new/activity", newActivity)
-      // On success, run the following code
-      .then(function(data) {
-        // Log the data we found
-        console.log(data);
-      });
-  
-    // Empty each input box by replacing the value with an empty string
-    child2.val("");
-    activity.val("");
-  
-  });
-// $("#find-acitivities").on("click", function(event) {
-//     var res = var child2 = $("#add-child-name2").val();
-//   $.get("/api/activity/:name"(req, res) =>{
-//       console.log('done');
-//   })
-//   }
-   
-</script> --}}
+    <div class="col-5 text-center ">
+      <h2>Parent Name</h2>
+      <hr>
+      <div class="row">
+        <div class="col-12 text-center ">
+          <br>
+          <ol class="" style="list-style-type:none">
+            {{#each data}}
+            <li>
+              <h2>{{parent_name}}</h2>
+              <br>
+            </li>
+            {{/each}}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-1"></div>
+</div>
+</div>
+
+
+
+<div class="modal fade" id="add-child" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add User
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-justify">
+
+        <label for="child-name">Child Name</label>
+        <input id="add-child" type="text" placeholder="Child's name here">
+        <br>
+        <label for="parent-name">Parent Name</label>
+        <input id="add-parent" type="text" placeholder="Parent's name here">
+
+      </div>
+      <div class="modal-footer">
+        <button id="get-one"> add child</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="add-activity" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Activity
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+
+        <div class="row">
+          <div class="col-6">
+            <label for="specific-child">Child Name</label>
+            <input id="add-child-name2" type="text" placeholder="Specify child">
+          </div>
+          <div class="col-6">
+            <label for="activity">Activity</label>
+            <input id="add-activity" type="text" placeholder="Type activity">
+          </div>
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button id="get-activity" class="btn btn-dark"> add activity</button>
+        <button id="find-activities" class="btn btn-dark">Find Child activities</button>
+      </div>
+    </div>
+  </div>
+</div>
