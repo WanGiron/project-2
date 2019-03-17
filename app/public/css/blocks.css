@@ -1,37 +1,44 @@
 .title-first {
-    border: 8px solid red;
+    border: 8px solid #ec0b0b;
 }
 .title-second {
-    border: 8px solid red;
+    border: 8px solid #0b34ec;
 }
 .title-third {
-    border: 8px solid red;
+    border: 8px solid #ece80b;
 }
 .title-fourth {
-    border: 8px solid red;
+    border: 8px solid #0bec61;
 }
 .title-fifth {
-    border: 8px solid red;
+    border: 8px solid #ec0ba8;
 }
 .title-sixth {
-    border: 8px solid red;
+    border: 8px solid #ec780b;
 }
 .title-seventh {
-    border: 8px solid red;
+    border: 8px solid #0ba5ec;
 }
 .title-eighth {
-    border: 8px solid red;
+    border: 8px solid #0b34ec;
 }
 .title-ninth {
-    border: 8px solid red;
+    border: 8px solid #0b34ec;
 }
 .title-tenth {
-    border: 8px solid red;
+    border: 8px solid #ec0b0b;
 }
-.title-eleventh {
-    border: 8px solid red;
+
+.title-box {
+    height: 80px;
+    width: 80px;
+    border-radius: 10%;
+    margin: 1px;
+    font-size: 65px;
+    font-family: 'Lilita One', cursive;
 }
 
 .letters {
-    margin: 1px;
+    position: relative;
+    bottom: 15px;   
 }
