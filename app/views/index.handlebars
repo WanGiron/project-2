@@ -1,36 +1,40 @@
-<h1>Children list</h1>
 <br>
-
-<ul>
-    {{#each data}}
-    <li>
-        <h2 class="child-activity" value="{{child_name}}">{{child_name}}</h2>
-        <a href="/api/admin-activity-site/{{child_name}}"><button class="child-activity-info">Daily
-                Acitivities</button></a>
-        <a href="/api/admin-message-site/{{child_name}}"><button class="child-activity-info">messages</button></a>
-    </li>
-
-    {{!-- <li>{{activity_type}}</li> --}}
-    {{/each}}
-</ul>
-
-<a href="/api/adiministrator/messages"><button>messages</button></a>
 <br>
-<a href="/api/adiministrator"><button>Show children</button></a>
-<br>
-
-<div>
-    {{#each messageData}}
-    <h2>{{child_name}}</h2>
-    <p>{{message_from_parent}}</p>
-    {{/each}}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-5 text-center">
+      <div class="row">
+        <div class="title-first title-box"><span class="letters">D</span></div>
+        <div class="title-second title-box"><span class="letters">A</span></div>
+        <div class="title-third title-box"><span class="letters">Y</span></div>
+        <div class="title-fourth title-box"><span class="letters">C</span></div>
+        <div class="title-fifth title-box"><span class="letters">A</span></div>
+        <div class="title-sixth title-box"><span class="letters">R</span></div>
+        <div class="title-seventh title-box"><span class="letters">E</span></div>
+        <!-- <div style="content:' ';"></div>
+                    <div class="title-eighth title-box"><span class="letters">C</span></div>
+                    <div class="title-ninth title-box"><span class="letters">E</span></div>
+                    <div class="title-tenth title-box"><span class="letters">N</span></div>
+                    <div class="title-ninth title-box"><span class="letters">T</span></div>
+                    <div class="title-tenth title-box"><span class="letters">E</span></div>
+                    <div class="title-tenth title-box"><span class="letters">R</span></div> -->
+      </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-3 text-center">
+      <h1>Admin Access Only</h1>
+    </div>
+    <div class="col-1"></div>
+  </div>
 </div>
-<input id="add-child" type="text">
 <br>
-<input id="add-parent" type="text">
-<button id="get-one"> add child</button>
-<hr>
-<input id="child-name-activity" type="text">
 <br>
-<input id="add-activity" type="text">
-<button id="submit-activity"> add activity</button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  {{!-- <a class="navbar-brand" href="#">Navbar</a> --}}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
