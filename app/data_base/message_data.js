@@ -7,18 +7,17 @@ var child = sequelize.define("children", {
     parent_name: Sequelize.STRING,
 });
 
-//// Creating an activities model that matches up with DB
-var activity = sequelize.define("activities", {
+
+var newMessage = sequelize.define("messages", {
     child_name: Sequelize.STRING,
-    activity_type: Sequelize.STRING,
-    activity_time: Sequelize.DATE
+    message_from_parent: Sequelize.STRING,
 });
 
 //Grouping Both model into a single Object
-var daycare_data = {
+var message_data = {
     children: child,
-    activities: activity
+    message: newMessage
    
 }
 
-module.exports = daycare_data;
+module.exports = message_data;

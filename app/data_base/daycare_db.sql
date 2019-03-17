@@ -31,4 +31,14 @@ INSERT INTO activities(child_name, activity_type) VALUE('rnakada','Afternoon nap
 
 
 SELECT * FROM activities;
+
+
+CREATE TABLE messages (
+id INT AUTO_INCREMENT NOT NULL,
+child_name VARCHAR(255) NOT NULL,
+message_from_parent VARCHAR(255) NOT NULL,
+PRIMARY KEY(id)
+);
+
+SELECT * FROM message;
 -- DELETE  FROM children WHERE id= 1;
