@@ -1,7 +1,13 @@
-<h1>Daily activities</h1>
+<h1>Daily Activities</h1>
 
 <div id="title-here">
-    <h2>{{data2}}</h2>
+ 
+    <ul>
+        {{#each child}}
+        <li>{{this.date_of_birth}}</li>
+        <li>{{this.parent_name}}</li>
+        {{/each}}
+    </ul>
     <ul>
         {{#each data}}
         <li>{{activity_type}}</li> <span>{{activity_time}}</span>
@@ -10,15 +16,33 @@
 
 </div>
 
+<div id="title-here">
+
+</div>
+
 
 
 <h3 id="add-child-name2" value="{{data2}}" hidden="true">{{data2}}</h3>
-<input id="add-activity" type="text">
+<input id="add-activity" type="text" placeholder="Type activity">
 <button id="get-activity"> add activity</button>
 <a href="../administrator"><button>Go back</button></a>
 
-{{!-- <div>
-<h2 id="child-name-val">{{data2}}</h2>
-<input type="text" id="new-message">
-<button id="send-message">Submit</button>
-</div> --}}
+{{!-- <script>
+
+    function getList() {
+        var childName = $("h2").text();
+        $.ajax
+            ({
+                url: "/api/admin-activity-site/:" + childName,
+                method: "GET"
+            })
+            .then(function (results) {
+                console.log(results);
+                var newResults = results;
+                var div = $("<div>");
+                div.append(newResults);
+                $("#title-here").append(div);
+            })
+    }
+    getList();
+</script> --}}
