@@ -15,13 +15,17 @@ $(document).ready(function () {
 
     $("#get-one").on("click", function (event) {
         event.preventDefault();
-        var child = $("#add-child");
-        var parent = $("#add-parent");
+        var child = $("#child-name-input").val().trim();
+        var childLastName = $("#last-name-input").val().trim();
+        var dateOfBirth = $("#dob").val().trim();
+        var parent = $("#add-parent").val().trim();
 
-        // Make a newBook object
+        // Make a new child object
         var newChild = {
-            child_name: child.val(),
-            parent_name: parent.val()
+            child_name: child,
+            child_last_name: childLastName,
+            date_of_birth: dateOfBirth,
+            parent_name: parent
         };
 
         // Send an AJAX POST-request with jQuery
@@ -34,7 +38,36 @@ $(document).ready(function () {
 
         // Empty each input box by replacing the value with an empty string
         child.val("");
-        parent.val("");
+        parentv.val("");
+        childLastName.val("");
+        dateOfBirth.val("");
+
+    });
+
+    //creating activities from index adiministrator site // 
+    $("#submit-activity").on("click", function (event) {
+        event.preventDefault();
+        var child2 = $("#child-name-activity").val();
+        var activity = $("#admin-activity").val();
+        console.log(activity);
+
+        // Make a newBook object
+        var newActivity = {
+            child_name: child2,
+            activity_type: activity
+        };
+
+        // Send an AJAX POST-request with jQuery
+        $.post("/api/new/activity", newActivity)
+            // On success, run the following code
+            .then(function (data) {
+                // Log the data we found
+                console.log(data);
+            });
+
+        // Empty each input box by replacing the value with an empty string
+        child2.val("");
+        activity.val("");
 
     });
 
@@ -83,8 +116,8 @@ $(document).ready(function () {
             });
 
         // Empty each input box by replacing the value with an empty string
-        child2.val("");
-        activity.val("");
+        child2.val(" ");
+        activity.val(" ");
 
     });
     // TO send message from parent //

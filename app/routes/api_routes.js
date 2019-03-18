@@ -1,5 +1,5 @@
 var daycare_data = require("../data_base/daycare_data.js");
-var message_data = require("../data_base/message_data.js")
+var message_data = require("../data_base/message_data.js");
 var express = require("express");
 //var router = express.Router();
 
@@ -39,7 +39,6 @@ module.exports = (app) => {
         });
     });
 
-
     //Pulling All messages from admin site kids tab based on name//
     app.get("/api/admin-message-site/:childName", (req, res) => {
         //var name = req.params.name;
@@ -62,6 +61,8 @@ module.exports = (app) => {
         //console.log(req.body);
         daycare_data.children.create({
             child_name: req.body.child_name,
+            child_last_name: req.body.child_last_name,
+            date_of_birth: req.body.date_of_birth,
             parent_name: req.body.parent_name
         }).then((results)=>{
             res.end();
@@ -106,9 +107,6 @@ module.exports = (app) => {
     //     });
     // });
 
-
-
-
     // Findig one child for clients site for activities//
     app.get("/api/client-site/:childName", (req, res) => {
         daycare_data.activities.findAll({
@@ -116,12 +114,16 @@ module.exports = (app) => {
                 child_name: req.params.childName
             }
         }).then((results) => {
-            var childName = results[0].dataValues.child_name;
+            var childName = results[0].child_name;
             res.render("client", {
                 data: results,
-                data2: childName
+                data2: childName,
             })
+
+            console.log("this is child name"+childName);
+            
         });
+        
     });
 
     //Adding a new message Into DB for client site//

@@ -5,6 +5,8 @@ USE daycare_db;
 CREATE TABLE children (
 id INT AUTO_INCREMENT NOT NULL,
 child_name VARCHAR(255) NOT NULL,
+child_last_name VARCHAR(255) NOT NULL,
+date_of_birth DATE NOT NULL,
 parent_name VARCHAR(255) NOT NULL,
 PRIMARY KEY(id)
 );
