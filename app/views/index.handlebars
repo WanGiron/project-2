@@ -79,6 +79,8 @@
             </div>
         </div>
 
+
+
         <div class="col-4 text-center div-parent-name">
             <h2>Parent Name</h2>
             <hr>
@@ -147,35 +149,38 @@
             <div class="modal-body text-center">
 
                 <div class="">
-                    <div class="">
-                        <label for="specific-child">Child Name</label>
-                        <input id="child-name-activity" type="text" placeholder="Specify child">
-                    </div>
-                    <div class="">
-                        <label for="activity">Activity</label>
-                        <select id="admin-activity-select" type="text" placeholder="Type activity">
-                            <option value="text" aria-placeholder="Select one"></option>
-                            <option value="Meals">Meals</option>
-                            <option value="Snack">Snack</option>
-                            <option value="Play time">Play time</option>
-                            <option value="Learning">Learning</option>
-                            <option value="Nap time">Nap time</option>
-                            <option value="Daiper">Daiper</option>
-                        </select>
-                    </div>
-                    <div class="">
-                        <label for="activity">Activity</label>
-                        <input id="admin-activity" type="text" placeholder="Type activity">
-                    </div>
+
+                    <label for="specific-child">Child Name</label>
+                    <select name="" id="child-name-activity">
+                        <option aria-placeholder="select-One">Select One</option>
+                        {{#each data}}
+                        <option value="{{child_name}}">{{child_name}}</option>
+                        {{/each}}
+                    </select>
+
                 </div>
-
-
+                <div class="">
+                    <label for="activity">Activity</label>
+                    <select id="admin-activity-select" type="text" placeholder="Type activity">
+                        <option value="text" aria-placeholder="Select one">Select One</option>
+                        <option value="Meals">Meals</option>
+                        <option value="Snack">Snack</option>
+                        <option value="Play time">Play time</option>
+                        <option value="Learning">Learning</option>
+                        <option value="Nap time">Nap time</option>
+                        <option value="Daiper">Daiper</option>
+                    </select>
+                </div>
+                <div class="">
+                    <label for="activity">Activity</label>
+                    <input id="admin-activity" type="text" placeholder="Type activity">
+                </div>
             </div>
-            <div class="modal-footer">
-                <button id="submit-activity" class="btn btn-dark">Add activity</button>
-            </div>
+        <div class="modal-footer">
+            <button id="submit-activity" class="btn btn-dark">Add activity</button>
         </div>
     </div>
+</div>
 </div>
 
 
@@ -197,6 +202,13 @@
                 messageDiv.append(messageText);
                 messageDiv.append(close);
                 $("#messages-here").prepend(messageDiv);
+
+                //for selct tab//
+                var selectTag = $("<select id='child-name-activity'>");
+                var optionTag = $("<option>");
+                optionTag.text(results2[i].child_name);
+                selectTag.append(optionTag);
+                $("#select-option-here").append(selectTag);
             }
         });
    //}, 1000)
