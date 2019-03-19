@@ -146,7 +146,6 @@ $(document).ready(function () {
             });
 
         // Empty each input box by replacing the value with an empty string
-        child3.val("");
         message.val("");
 
     });

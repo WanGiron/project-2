@@ -43,5 +43,5 @@ message_from_parent VARCHAR(255) NOT NULL,
 PRIMARY KEY(id)
 );
 
-SELECT * FROM message;
+SELECT * FROM messages;
 -- DELETE  FROM children WHERE id= 1;

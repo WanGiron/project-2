@@ -16,11 +16,9 @@ module.exports = (app) => {
 
 
 // view messages from admin site / kids //
-    app.get("/api/adiministrator/messages", (req, res) => {
-        message_data.message.findAll({}).then((results) => {
-            res.render("index", {
-                messageData: results
-            })
+    app.post("/api/administrator/messages", (req, res) => {
+        message_data.message.findAll({}).then((results2) => {
+            res.json(results2);
         });
     });
 
