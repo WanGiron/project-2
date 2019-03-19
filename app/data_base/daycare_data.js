@@ -12,6 +12,7 @@ var child = sequelize.define("children", {
 //// Creating an activities model that matches up with DB
 var activity = sequelize.define("activities", {
     child_name: Sequelize.STRING,
+    activity_option: Sequelize.STRING,
     activity_type: Sequelize.STRING,
     activity_time: Sequelize.DATE
 });

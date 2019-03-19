@@ -12,20 +12,19 @@ $(document).ready(function () {
             )
     })
 
-
     $("#get-one").on("click", function (event) {
         event.preventDefault();
-        var child = $("#child-name-input").val().trim();
-        var childLastName = $("#last-name-input").val().trim();
-        var dateOfBirth = $("#dob").val().trim();
-        var parent = $("#add-parent").val().trim();
+        var child = $("#child-name-input");
+        var childLastName = $("#last-name-input");
+        var dateOfBirth = $("#dob");
+        var parent = $("#add-parent");
 
         // Make a new child object
         var newChild = {
-            child_name: child,
-            child_last_name: childLastName,
-            date_of_birth: dateOfBirth,
-            parent_name: parent
+            child_name: child.val().trim(),
+            child_last_name: childLastName.val().trim(),
+            date_of_birth: dateOfBirth.val().trim(),
+            parent_name: parent.val().trim()
         };
 
         // Send an AJAX POST-request with jQuery
@@ -38,7 +37,7 @@ $(document).ready(function () {
 
         // Empty each input box by replacing the value with an empty string
         child.val("");
-        parentv.val("");
+        parent.val("");
         childLastName.val("");
         dateOfBirth.val("");
 
@@ -47,14 +46,16 @@ $(document).ready(function () {
     //creating activities from index adiministrator site // 
     $("#submit-activity").on("click", function (event) {
         event.preventDefault();
-        var child2 = $("#child-name-activity").val();
-        var activity = $("#admin-activity").val();
+        var child2 = $("#child-name-activity");
+        var activityOption = $("#admin-activity-select");
+        var activity = $("#admin-activity");
         console.log(activity);
 
-        // Make a newBook object
+        // Make a new acitivifi object
         var newActivity = {
-            child_name: child2,
-            activity_type: activity
+            child_name: child2.val().trim(),
+            activity_option: activityOption.val().trim(),
+            activity_type: activity.val().trim()
         };
 
         // Send an AJAX POST-request with jQuery
@@ -67,19 +68,23 @@ $(document).ready(function () {
 
         // Empty each input box by replacing the value with an empty string
         child2.val("");
+        activityOption.val("");
         activity.val("");
 
     });
 
     $("#get-activity").on("click", function (event) {
         event.preventDefault();
-        var activity = $("#add-activity").val();
-        var child2 = $("h3").text();
 
-        // Make a newBook object
+        var child2 = $("h3").text();
+        var activityOption = $("#admin-activity-option");
+        var activity = $("#add-activity");
+
+        // Make a new activity object
         var newActivity = {
             child_name: child2,
-            activity_type: activity
+            activity_option: activityOption.val().trim(),
+            activity_type: activity.val().trim()
         };
 
         // Send an AJAX POST-request with jQuery
@@ -91,7 +96,7 @@ $(document).ready(function () {
             });
 
         // Empty each input box by replacing the value with an empty string
-        child2.val("");
+        activityOption.val("");
         activity.val("");
 
     });

@@ -88,7 +88,8 @@ module.exports = (app) => {
 
         daycare_data.activities.create({
         child_name: req.body.child_name,
-        activity_type: req.body.activity_type,
+        activity_option: req.body.activity_option,
+        activity_type: req.body.activity_type
        
         }).then((results)=>{
             res.end();
