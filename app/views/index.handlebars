@@ -53,25 +53,11 @@
 <br>
 <div class="container">
     <div class="row">
-        <div class="col-2 text-center ">
-            <h2> ID</h2>
-            <hr>
-            <div class="row">
-                <div class="col-12 text-center ">
-                    <br>
-                    <ol class="" style="list-style-type:none">
-                        {{#each data}}
-                        <li>
-                            <h2>{{this.id}}</h2>
-                            <br>
-                        </li>
-                        {{/each}}
-                    </ol>
-                </div>
-            </div>
+        <div class="col-2 text-center div-id-number ">
+            {{!-- empty --}}
         </div>
 
-        <div class="col-5 text-center div-children-names">
+        <div class="col-6 text-center div-children-names">
             <h2>Children Name</h2>
             <hr>
             <div class="row">
@@ -81,9 +67,11 @@
                         {{#each data}}
                         <p>
                             <h4 class="child-activity" value="{{child_name}}">{{child_name}} {{child_last_name}}</h4>
-                            <a href="/api/admin-activity-site/{{child_name}}"><button class="child-activity-info">Daily
+                            <a href="/api/admin-activity-site/{{child_name}}"><button
+                                    class="child-activity-info btn btn-outline-secondary btn-sm">Daily
                                     Acitivities</button></a>
-                            <a href="/api/admin-message-site/{{child_name}}"><button class="child-activity-info">Messages</button></a>
+                            <a href="/api/admin-message-site/{{child_name}}"><button
+                                    class="child-activity-info btn btn-outline-info btn-sm">Messages</button></a>
                         </p>
                         {{/each}}
                     </ul>
@@ -91,20 +79,13 @@
             </div>
         </div>
 
-        <div class="col-5 text-center div-parent-name">
+        <div class="col-4 text-center div-parent-name">
             <h2>Parent Name</h2>
             <hr>
             <div class="row">
-                <div class="col-12 text-center ">
+                <div class="col-12 text-center" id="messages-here">
                     <br>
-                    <ol class="" style="list-style-type:none">
-                        {{#each data}}
-                        <li>
-                            <h4>{{parent_name}}</h4>
-                            <br>
-                        </li>
-                        {{/each}}
-                    </ol>
+
                 </div>
             </div>
         </div>
@@ -114,6 +95,8 @@
 <div class="col-1"></div>
 </div>
 </div>
+
+
 
 
 
@@ -163,12 +146,24 @@
             </div>
             <div class="modal-body text-center">
 
-                <div class="row">
-                    <div class="col-6">
+                <div class="">
+                    <div class="">
                         <label for="specific-child">Child Name</label>
                         <input id="child-name-activity" type="text" placeholder="Specify child">
                     </div>
-                    <div class="col-6">
+                    <div class="">
+                        <label for="activity">Activity</label>
+                        <select id="admin-activity-select" type="text" placeholder="Type activity">
+                            <option value="text" aria-placeholder="Select one"></option>
+                            <option value="Meals">Meals</option>
+                            <option value="Snack">Snack</option>
+                            <option value="Play time">Play time</option>
+                            <option value="Learning">Learning</option>
+                            <option value="Nap time">Nap time</option>
+                            <option value="Daiper">Daiper</option>
+                        </select>
+                    </div>
+                    <div class="">
                         <label for="activity">Activity</label>
                         <input id="admin-activity" type="text" placeholder="Type activity">
                     </div>
@@ -182,3 +177,28 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    //window.setInterval(function() {
+    //$("#messages-here").empty();
+    $.ajax({ url: "/api/administrator/messages", method: "POST" })
+        .then(function (results2) {
+            console.log(results2);
+            for (i = 0; i < results2.length; i++) {
+                //console.log(results2[i]);
+                var messageDiv = $("<div class='alert alert-success alert-dismissible'>");
+                var close = $("<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>");
+                var messageText = $("<p class='message-body'>");
+                var messageChild = $("<h4 class='message-child-name'>");
+                messageChild.text(results2[i].child_name);
+                messageText.text(results2[i].message_from_parent);
+                messageDiv.append(messageChild);
+                messageDiv.append(messageText);
+                messageDiv.append(close);
+                $("#messages-here").prepend(messageDiv);
+            }
+        });
+   //}, 1000)
+
+</script>

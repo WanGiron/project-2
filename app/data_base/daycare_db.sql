@@ -21,6 +21,7 @@ SELECT * FROM children;
 CREATE TABLE activities (
 id INT AUTO_INCREMENT,
 child_name VARCHAR(255) NOT NULL,
+activity_option VARCHAR(255) NOT NULL,
 activity_type VARCHAR(255) NOT NULL,
 activity_time DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
 PRIMARY KEY(id)
@@ -42,5 +43,5 @@ message_from_parent VARCHAR(255) NOT NULL,
 PRIMARY KEY(id)
 );
 
-SELECT * FROM message;
+SELECT * FROM messages;
 -- DELETE  FROM children WHERE id= 1;
