@@ -1,16 +1,8 @@
 
-<h1>{{data2}}</h1><span><h2>{{data3}}</h2></span>
-    <ul>
-        {{#each data}}
-        {{!-- <h2>{{child_name}}</h2> --}}
-        <li><h4>{{this.activity_option}}</h4></li>
-        <li>{{activity_type}}</li> <span>{{activity_time}}</span>
-        {{!-- <li>{{activity_type}}</li> --}}
-        {{/each}}
-    </ul>
 
 <div>
-<h2 id="child-name-val">{{data2}}</h2>
-<input type="text" id="new-message">
-<button id="send-message">Submit</button>
+    {{!-- <h2 id="child-name-val">{{data2}}</h2> --}}
+    <label for="message-to-admin">Send Urgent Message!</label>
+    <input type="text" id="new-message">
+    <button id="send-message">Submit</button>
 </div>

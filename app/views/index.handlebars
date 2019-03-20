@@ -63,19 +63,14 @@
             <div class="row">
                 <div class="col-12 text-justify main-child-box">
                     <br>
-                    <ul class="">
-                        {{#each data}}
-                        <p class="children-ptag">
+
                             <h4 class="child-activity" value="{{child_name}}">{{child_name}} {{child_last_name}}</h4>
                             <a href="/api/admin-activity-site/{{child_name}}"><button
                                     class="child-activity-info btn btn-outline-secondary btn-sm">Daily
                                     Acitivities</button></a>
                             <a href="/api/admin-message-site/{{child_name}}"><button
                                     class="child-activity-info btn btn-outline-info btn-sm">Messages</button></a>
-                            <button class="btn btn-outline-success child-info" value="{{child_name}}">More
-                                info</button>
-                        </p>
-                        <hr>
+
                         {{/each}}
                     </ul>
                 </div>
@@ -85,16 +80,19 @@
 
 
         <div class="col-4 text-center div-parent-name">
-            <h2>Parent's messages</h2>
+
             <hr>
             <div class="row">
-                <div class="col-12 text-center" id="messages-here">
-                    <br>
-
-                </div>
+                <ul class="scroll-list">
+                    <li>
+                        <div class="col-12 text-center" id="messages-here">
+                            <br>
+                    </li>
             </div>
+            </ul>
         </div>
     </div>
+</div>
 </div>
 
 <div class="col-1"></div>
