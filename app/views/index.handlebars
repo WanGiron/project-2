@@ -63,16 +63,17 @@
             <div class="row">
                 <div class="col-12 text-justify ">
                     <br>
-                    <ul>
+                    <ul class="scroll-list">
                         {{#each data}}
-                        <p>
+                        <li>
                             <h4 class="child-activity" value="{{child_name}}">{{child_name}} {{child_last_name}}</h4>
                             <a href="/api/admin-activity-site/{{child_name}}"><button
                                     class="child-activity-info btn btn-outline-secondary btn-sm">Daily
                                     Acitivities</button></a>
                             <a href="/api/admin-message-site/{{child_name}}"><button
                                     class="child-activity-info btn btn-outline-info btn-sm">Messages</button></a>
-                        </p>
+                            <hr>
+                        </li>
                         {{/each}}
                     </ul>
                 </div>
@@ -82,16 +83,19 @@
 
 
         <div class="col-4 text-center div-parent-name">
-            <h2>Parent Name</h2>
+            <h2>Message Alert</h2>
             <hr>
             <div class="row">
-                <div class="col-12 text-center" id="messages-here">
-                    <br>
-
-                </div>
+                <ul class="scroll-list">
+                    <li>
+                        <div class="col-12 text-center" id="messages-here">
+                            <br>
+                    </li>
             </div>
+            </ul>
         </div>
     </div>
+</div>
 </div>
 
 <div class="col-1"></div>
@@ -176,11 +180,11 @@
                     <input id="admin-activity" type="text" placeholder="Type activity">
                 </div>
             </div>
-        <div class="modal-footer">
-            <button id="submit-activity" class="btn btn-dark">Add activity</button>
+            <div class="modal-footer">
+                <button id="submit-activity" class="btn btn-dark">Add activity</button>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 
