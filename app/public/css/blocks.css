@@ -42,3 +42,23 @@
     position: relative;
     bottom: 15px;   
 }
+
+.color-one {
+    height: 5px;
+    background-color:#ecb00b;
+}
+
+.color-two {
+    height: 5px;
+    background-color:#0bec61;
+}
+
+.color-three {
+    height: 5px;
+    background-color:#ece80b;
+}
+
+.color-four {
+    height: 5px;
+    background-color:#0b34ec;
+}
