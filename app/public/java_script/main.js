@@ -12,13 +12,12 @@ $(document).ready(function () {
             )
     })
 
-    $("#get-one").on("click", function (event) {
-        event.preventDefault();
+    $("#new-child-form").on("submit", function (event) {
+        event.preventDefault(); 
         var child = $("#child-name-input");
         var childLastName = $("#last-name-input");
         var dateOfBirth = $("#dob");
         var parent = $("#add-parent");
-
         // Make a new child object
         var newChild = {
             child_name: child.val().trim(),
@@ -51,7 +50,7 @@ $(document).ready(function () {
         var activity = $("#admin-activity");
         console.log(activity);
 
-        // Make a new acitivifi object
+        // Make a new acitivit object
         var newActivity = {
             child_name: child2.val().trim(),
             activity_option: activityOption.val().trim(),
@@ -145,7 +144,7 @@ $(document).ready(function () {
                 console.log(data);
             });
 
-        // Empty each input box by replacing the value with an empty string
+        // Empty each input box by replacing the value with an empty string//
         message.val("");
 
     });

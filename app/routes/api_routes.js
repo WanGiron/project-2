@@ -4,6 +4,7 @@ var express = require("express");
 //var router = express.Router();
 
 module.exports = (app) => {
+
     //Administrator site //
     app.get("/api/administrator", (req, res) => {
         daycare_data.children.findAll({}).then((results) => {
@@ -14,9 +15,17 @@ module.exports = (app) => {
         });
     });
 
+// For ajax request for child info // 
+    app.get("/api/administrator/child-information", (req, res) => {
+        daycare_data.children.findAll({}).then((results) => {
+            //var newData = parse(results);
+            res.json(results);
+        });
+    });
+
 
 // view messages from admin site / kids //
-    app.post("/api/administrator/messages", (req, res) => {
+    app.get("/api/administrator/messages", (req, res) => {
         message_data.message.findAll({}).then((results2) => {
             res.json(results2);
         });

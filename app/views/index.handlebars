@@ -53,26 +53,29 @@
 <br>
 <div class="container">
     <div class="row">
-        <div class="col-2 text-center div-id-number ">
+        <div class="col-3 text-center div-id-number" id="child-information-div">
             {{!-- empty --}}
         </div>
 
-        <div class="col-6 text-center div-children-names">
+        <div class="col-5 text-center div-children-names">
             <h2>Children Name</h2>
             <hr>
             <div class="row">
-                <div class="col-12 text-justify ">
+                <div class="col-12 text-justify main-child-box">
                     <br>
-                    <ul>
+                    <ul class="">
                         {{#each data}}
-                        <p>
+                        <p class="children-ptag">
                             <h4 class="child-activity" value="{{child_name}}">{{child_name}} {{child_last_name}}</h4>
                             <a href="/api/admin-activity-site/{{child_name}}"><button
                                     class="child-activity-info btn btn-outline-secondary btn-sm">Daily
                                     Acitivities</button></a>
                             <a href="/api/admin-message-site/{{child_name}}"><button
                                     class="child-activity-info btn btn-outline-info btn-sm">Messages</button></a>
+                            <button class="btn btn-outline-success child-info" value="{{child_name}}">More
+                                info</button>
                         </p>
+                        <hr>
                         {{/each}}
                     </ul>
                 </div>
@@ -82,7 +85,7 @@
 
 
         <div class="col-4 text-center div-parent-name">
-            <h2>Parent Name</h2>
+            <h2>Parent's messages</h2>
             <hr>
             <div class="row">
                 <div class="col-12 text-center" id="messages-here">
@@ -99,9 +102,6 @@
 </div>
 
 
-
-
-
 <div class="modal fade" id="add-child" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -113,24 +113,28 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body text-justify">
+            <form action="/" id="new-child-form">
+                <div class="modal-body text-justify">
+                    {{!-- To add new child to data base --}}
+                    <label for="child-name">Child Name</label>
+                    <input id="child-name-input" class="to-validate" type="text" placeholder="Child's name here"
+                        required>
+                    <br>
+                    <label for="child-last-name">Last Name</label>
+                    <input id="last-name-input" class="to-validate" type="text" placeholder="Child's last name here"
+                        required>
+                    <br>
+                    <label for="child-dob">Date of birth</label>
+                    <input id="dob" type="date" class="to-validate" placeholder="yyyy/mm/dd" required>
+                    <br>
+                    <label for="parent-name">Parent Name</label>
+                    <input id="add-parent" type="text" class="to-validate" placeholder="Parent's name here" required>
+                </div>
+                <div class="modal-footer">
+                    <button id="get-one" type="submit"> add child</button>
+                </div>
+            </form>
 
-                <label for="child-name">Child Name</label>
-                <input id="child-name-input" type="text" placeholder="Child's name here">
-                <br>
-                <label for="child-last-name">Last Name</label>
-                <input id="last-name-input" type="text" placeholder="Child's last name here">
-                <br>
-                <label for="child-dob">Date of birth</label>
-                <input id="dob" type="date" placeholder="yyyy/mm/dd">
-                <br>
-                <label for="parent-name">Parent Name</label>
-                <input id="add-parent" type="text" placeholder="Parent's name here">
-
-            </div>
-            <div class="modal-footer">
-                <button id="get-one"> add child</button>
-            </div>
         </div>
     </div>
 </div>
@@ -147,49 +151,49 @@
                 </button>
             </div>
             <div class="modal-body text-center">
-
-                <div class="">
-
-                    <label for="specific-child">Child Name</label>
-                    <select name="" id="child-name-activity">
-                        <option aria-placeholder="select-One">Select One</option>
-                        {{#each data}}
-                        <option value="{{child_name}}">{{child_name}}</option>
-                        {{/each}}
-                    </select>
-
-                </div>
-                <div class="">
-                    <label for="activity">Activity</label>
-                    <select id="admin-activity-select" type="text" placeholder="Type activity">
-                        <option value="text" aria-placeholder="Select one">Select One</option>
-                        <option value="Meals">Meals</option>
-                        <option value="Snack">Snack</option>
-                        <option value="Play time">Play time</option>
-                        <option value="Learning">Learning</option>
-                        <option value="Nap time">Nap time</option>
-                        <option value="Daiper">Daiper</option>
-                    </select>
-                </div>
-                <div class="">
-                    <label for="activity">Activity</label>
-                    <input id="admin-activity" type="text" placeholder="Type activity">
-                </div>
+                <form id="new-activity-form" action="/">
+                    <div class="">
+                        <label for="specific-child">Child Name</label>
+                        <select id="child-name-activity" required>
+                            <option aria-placeholder="select-One">Select One</option>
+                            {{#each data}}
+                            <option value="{{child_name}}">{{child_name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div>
+                        <label for="activity">Activity</label>
+                        <select id="admin-activity-select" type="text" placeholder="Type activity" required>
+                            <option value="text" aria-placeholder="Select one">Select One</option>
+                            <option value="Meals">Meals</option>
+                            <option value="Snack">Snack</option>
+                            <option value="Play time">Play time</option>
+                            <option value="Learning">Learning</option>
+                            <option value="Nap time">Nap time</option>
+                            <option value="Daiper">Daiper</option>
+                        </select>
+                    </div>
+                    <div class="">
+                        <label for="activity">Activity</label>
+                        <input id="admin-activity" class="to-validate" type="text" placeholder="Type activity" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="submit-activity" class="btn btn-dark" type="submit">Add activity</button>
+                    </div>
+                </form>
             </div>
-        <div class="modal-footer">
-            <button id="submit-activity" class="btn btn-dark">Add activity</button>
+
         </div>
     </div>
-</div>
 </div>
 
 
 <script>
     //window.setInterval(function() {
     //$("#messages-here").empty();
-    $.ajax({ url: "/api/administrator/messages", method: "POST" })
+    $.ajax({ url: "/api/administrator/messages", method: "GET" })
         .then(function (results2) {
-            console.log(results2);
+            //console.log(results2);
             for (i = 0; i < results2.length; i++) {
                 //console.log(results2[i]);
                 var messageDiv = $("<div class='alert alert-success alert-dismissible'>");
@@ -203,7 +207,7 @@
                 messageDiv.append(close);
                 $("#messages-here").prepend(messageDiv);
 
-                //for selct tab//
+                //for select tab//
                 var selectTag = $("<select id='child-name-activity'>");
                 var optionTag = $("<option>");
                 optionTag.text(results2[i].child_name);
@@ -211,6 +215,43 @@
                 $("#select-option-here").append(selectTag);
             }
         });
-   //}, 1000)
+    //}, 1000)
+
+    $(".child-info").on("click", function (event) {
+        event.preventDefault();
+        $("#child-information-div").empty();
+        var childInfoValue = $(this).val();
+        $.ajax({ url: "/api/administrator/child-information", method: "GET" })
+            .then(function (results) {
+                console.log(results);
+                var results1 = results;
+                //for (i = 0; i < results1.length; i++) {
+
+                var item = results1.filter(function (results1) {
+                    return results1.child_name === childInfoValue;
+                });
+
+                console.log(childInfoValue);
+                var newDiv = $("<div class='child-info'>");
+                var line = $("<li>");
+                line.text("Name: " + item[0].child_name);
+                var line1 = $("<li>");
+                line1.text("Last Name: " + item[0].child_last_name);
+                var line2 = $("<li>");
+                line2.text("Date of Birth: " + item[0].date_of_birth);
+                var line3 = $("<li>");
+                line3.text("Parent's Name: " + item[0].parent_name);
+                newDiv.append(line, line1, line2, line3);
+                $("#child-information-div").append(newDiv);
+
+                //};
+
+            });
+
+    })
+
+
+
+
 
 </script>
