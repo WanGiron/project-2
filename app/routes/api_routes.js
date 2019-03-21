@@ -15,7 +15,7 @@ module.exports = (app) => {
         });
     });
 
-// For ajax request for child info // 
+    // For ajax request for child info // 
     app.get("/api/administrator/child-information", (req, res) => {
         daycare_data.children.findAll({}).then((results) => {
             //var newData = parse(results);
@@ -24,7 +24,7 @@ module.exports = (app) => {
     });
 
 
-// view messages from admin site / kids //
+    // view messages from admin site / kids //
     app.get("/api/administrator/messages", (req, res) => {
         message_data.message.findAll({}).then((results2) => {
             res.json(results2);
@@ -34,7 +34,7 @@ module.exports = (app) => {
     // Findig one child for admin site for activities//
     app.get("/api/admin-activity-site/:childName", (req, res) => {
         daycare_data.activities.findAll({
-            where:{
+            where: {
                 child_name: req.params.childName
             }
         }).then((results) => {
@@ -52,7 +52,7 @@ module.exports = (app) => {
         message_data.message.findAll({
             where: {
                 child_name: req.params.childName
-              }
+            }
         }).then((results) => {
             var childName = results[0].child_name;
             res.render("messages", {
@@ -62,8 +62,8 @@ module.exports = (app) => {
         });
     });
 
-     //Adding a New Child Into DB for administrator site //
-     app.post("/api/new/child", (req, res) => {
+    //Adding a New Child Into DB for administrator site //
+    app.post("/api/new/child", (req, res) => {
         console.log("daycare data:");
         //console.log(req.body);
         daycare_data.children.create({
@@ -71,7 +71,18 @@ module.exports = (app) => {
             child_last_name: req.body.child_last_name,
             date_of_birth: req.body.date_of_birth,
             parent_name: req.body.parent_name
-        }).then((results)=>{
+        }).then((results) => {
+            res.end();
+        });
+    });
+    // to update boolean//
+    //---------------//
+    app.put("/api/admin-message-delete/:id", (req, res) => {
+        message_data.message.update({ 
+            where: {
+                id: req.params.newMessageStatus
+            }  
+        }).then((results) => {
             res.end();
         });
     });
@@ -86,7 +97,7 @@ module.exports = (app) => {
     //         //console.log(results);
     //     });
     // });
-   
+
 
     //Adding a New Activities Into DB for administrator site
     app.post("/api/new/activity", (req, res) => {
@@ -94,15 +105,15 @@ module.exports = (app) => {
         console.log(req.body);
 
         daycare_data.activities.create({
-        child_name: req.body.child_name,
-        activity_option: req.body.activity_option,
-        activity_type: req.body.activity_type
-       
-        }).then((results)=>{
+            child_name: req.body.child_name,
+            activity_option: req.body.activity_option,
+            activity_type: req.body.activity_type
+
+        }).then((results) => {
             res.end();
         });
     });
-           //  This is for client site // 
+    //  This is for client site // 
     // //Pulling All activities based on child name //
     // app.get("/api/activity/:name", (req, res) => {
     //     var name = req.params.name;
@@ -118,7 +129,7 @@ module.exports = (app) => {
     // Findig one child for clients site for activities//
     app.get("/api/client-site/:childName", (req, res) => {
         daycare_data.activities.findAll({
-            where:{
+            where: {
                 child_name: req.params.childName
             }
         }).then((results) => {
@@ -128,10 +139,10 @@ module.exports = (app) => {
                 data2: childName,
             })
 
-            console.log("this is child name"+childName);
-            
+            console.log("this is child name" + childName);
+
         });
-        
+
     });
 
     //Adding a new message Into DB for client site//
@@ -140,10 +151,10 @@ module.exports = (app) => {
         console.log(req.body);
 
         message_data.message.create({
-        child_name: req.body.child_name,
-        message_from_parent: req.body.message_from_parent,
-  
-        }).then((results)=>{
+            child_name: req.body.child_name,
+            message_from_parent: req.body.message_from_parent,
+
+        }).then((results) => {
             res.end();
         });
     });

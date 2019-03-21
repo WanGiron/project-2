@@ -11,11 +11,6 @@ parent_name VARCHAR(255) NOT NULL,
 PRIMARY KEY(id)
 );
 
-INSERT INTO children(child_name, parent_name) VALUE('thomas', 'pascal');
-INSERT INTO children(child_name, parent_name) VALUE('baby', 'will');
-INSERT INTO children(child_name, parent_name) VALUE('rnakada', 'ry');
-INSERT INTO children(child_name, parent_name) VALUE('lydia Savadogo', 'Sidi Savadogo');
-
 SELECT * FROM children;
 
 CREATE TABLE activities (
@@ -27,12 +22,6 @@ activity_time DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
 PRIMARY KEY(id)
 );
 
-INSERT INTO activities(child_name, activity_type) VALUE('baby','Soccer');
-INSERT INTO activities(child_name, activity_type) VALUE('thomas','Programming');
-INSERT INTO activities(child_name, activity_type) VALUE('thomas','lunch');
-INSERT INTO activities(child_name, activity_type) VALUE('rnakada','Afternoon nap');
-
-
 SELECT * FROM activities;
 
 
@@ -40,6 +29,7 @@ CREATE TABLE messages (
 id INT AUTO_INCREMENT NOT NULL,
 child_name VARCHAR(255) NOT NULL,
 message_from_parent VARCHAR(255) NOT NULL,
+status_message BOOLEAN DEFAULT FALSE NOT NULL,
 PRIMARY KEY(id)
 );
 

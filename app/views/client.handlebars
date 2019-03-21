@@ -1,16 +1,73 @@
-
-<h1>{{data2}}</h1><span><h2>{{data3}}</h2></span>
-    <ul>
-        {{#each data}}
-        {{!-- <h2>{{child_name}}</h2> --}}
-        <li><h4>{{this.activity_option}}</h4></li>
-        <li>{{activity_type}}</li> <span>{{activity_time}}</span>
-        {{!-- <li>{{activity_type}}</li> --}}
-        {{/each}}
-    </ul>
-
-<div>
-<h2 id="child-name-val">{{data2}}</h2>
-<input type="text" id="new-message">
-<button id="send-message">Submit</button>
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5 text-center">
+            <div class="row">
+                <div class="title-first title-box"><span class="letters">D</span></div>
+                <div class="title-second title-box"><span class="letters">A</span></div>
+                <div class="title-third title-box"><span class="letters">Y</span></div>
+                <div class="title-fourth title-box"><span class="letters">C</span></div>
+                <div class="title-fifth title-box"><span class="letters">A</span></div>
+                <div class="title-sixth title-box"><span class="letters">R</span></div>
+                <div class="title-seventh title-box"><span class="letters">E</span></div>
+                <!-- <div style="content:' ';"></div>
+                    <div class="title-eighth title-box"><span class="letters">C</span></div>
+                    <div class="title-ninth title-box"><span class="letters">E</span></div>
+                    <div class="title-tenth title-box"><span class="letters">N</span></div>
+                    <div class="title-ninth title-box"><span class="letters">T</span></div>
+                    <div class="title-tenth title-box"><span class="letters">E</span></div>
+                    <div class="title-tenth title-box"><span class="letters">R</span></div> -->
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3 text-center">
+            <span class="client-name"><i class="fa fa-user"> {{data2}}</i> </span>
+        </div>
+        <div class="col-1"></div>
+    </div>
 </div>
+<br>
+<br>
+<div class="row">
+    <div class="col-3 color-one"></div>
+    <div class="col-3 color-two"></div>
+    <div class="col-3 color-three"></div>
+    <div class="col-3 color-four"></div>
+</div>
+<br>
+<br>
+
+{{!-- <div class="container-fluid border"> --}}
+<div>
+    <h6 id="child-name-val" hidden="true">{{data2}}</h6>
+    <label for="message-to-admin">Send Urgent Message!</label>
+    <input type="text" id="new-message">
+    <button id="send-message">Submit</button>
+</div>
+<div class="container border">
+    <div class="row">
+        <div class="col-6">
+
+        </div>
+
+        <div class="col-6 border">
+            <h2>{{data3}}</h2>
+            <ul style="list-style-type: none;" class="child-list">
+                {{#each data}}
+                {{!-- <h2>{{child_name}}</h2> --}}
+                <li><h4>{{this.activity_option}}</h4></li>
+                <li>{{activity_time}}</li>
+                <li>{{activity_type}}</li> <span></span>
+                {{!-- <li>{{activity_type}}</li> --}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+{{!-- </div> --}}
+

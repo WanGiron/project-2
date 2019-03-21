@@ -127,7 +127,7 @@ $(document).ready(function () {
     // TO send message from parent //
     $("#send-message").on("click", function (event) {
         event.preventDefault();
-        var child3 = $("h1").text();
+        var child3 = $("h6").text();
         var message = $("#new-message").val();
 
         // Make a newBook object
@@ -148,6 +148,21 @@ $(document).ready(function () {
         message.val("");
 
     });
+
+    
 });
+// var childName = 
+// $.ajax("/api/admin-message-delete/:childName"+ childName, {
+//     type: "PUT",
+//     data: childName
+//   }).then(
+//     function() {
+//       console.log("changed ready to", newDevoured);
+//       // Reload the page to get the updated list
+//       location.reload();
+//     }
+//   );
+
+
 
 
