@@ -9,6 +9,18 @@ var child = sequelize.define("children", {
     parent_name: Sequelize.STRING
 });
 
+// //message
+// var message = sequelize.define("messages", {
+//     id: {
+//         type: Sequelize.INTEGER,
+//         autoIncrement: true,
+//         primaryKey: true
+//     },
+//     child_name: Sequelize.STRING,
+//     message_from_parent: Sequelize.STRING,
+
+// });
+
 //// Creating an activities model that matches up with DB
 var activity = sequelize.define("activities", {
     child_name: Sequelize.STRING,
@@ -17,10 +29,56 @@ var activity = sequelize.define("activities", {
     activity_time: Sequelize.DATE
 });
 
+///User
+var user = sequelize.define("users", {
+    id: {
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+    },
+    firstname: {
+        type: Sequelize.STRING,
+        notEmpty: true
+    },
+    lastname: {
+        type: Sequelize.STRING,
+        notEmpty: true
+    },
+    username: {
+        type: Sequelize.STRING,
+        notEmpty: true
+    },
+    about: {
+        type: Sequelize.TEXT
+    },
+    email: {
+        type: Sequelize.STRING,
+        validate: {
+            isEmail: true
+        }
+    },
+    password: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    last_login: {
+        type: Sequelize.DATE
+    },
+    status: {
+        type: Sequelize.ENUM('active', 'inactive'),
+        defaultValue: 'active'
+    }
+});
+
+
+
 //Grouping Both model into a single Object
 var daycare_data = {
-    children: child,
-    activities: activity  
+    Children: child,
+    Activities: activity,
+    // Message: message,
+    Users: user
+   
 }
 
 module.exports = daycare_data;
