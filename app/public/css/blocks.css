@@ -62,3 +62,11 @@
     height: 5px;
     background-color:#0b34ec;
 }
+
+#little-feet {
+    background-color: white;
+    border-radius: 5%;
+    font-family: 'Lilita One', cursive;
+    position: relative;
+    top: 20px;
+}
