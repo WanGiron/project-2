@@ -1,52 +1,19 @@
+.client-name {
+    font-size: 50px;
+    font-family: 'Lilita One', cursive;
+}
 
-
-
-
-
-.child-list {
+.scroll-list {
     /* Flexbox-specific styles */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     /* General styling */
     font: 16px/1.3 sans-serif;
-    height: 300px;
+    height: 500px;
     list-style-type: none;
     margin: 0 auto;
     padding: 8px;
     overflow: auto;
-    width: 200px;
-}
-/* Default styles for chat bubbles */
-.messages li {
-    background: #eee;
-    border-radius: 8px;
-    padding: 8px;
-    margin: 2px 8px 2px 0;
-}
-/* Styles specific to our chat bubbles */
-.messages li.ours {
-    align-self: flex-end; /*Stick to the right side */
-    margin: 2px 0 2px 8px;
-}
-
-.messages-container:after {
-    content: '';
-    /* background: linear-gradient(
-        rgb(255, 143, 178) 0%, 
-        rgb(167, 151, 255) 50%, 
-        rgb(0, 229, 255) 100%
-    ); */
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
     width: 100%;
-    mix-blend-mode: screen;
-    pointer-events: none;
-}
-
-.messages li {
-    background: black;
-    color: white;
 }
