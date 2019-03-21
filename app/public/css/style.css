@@ -15,6 +15,14 @@
     margin-bottom: -10px;
 }
 
+.alert-primary{
+    margin-top: 20px;
+}
+
+.form-spaces{
+    margin-top: 3px;
+}
+
 /* .main-child-box{
     background-color: rgb(228, 248, 255);
     border-radius: 4px;

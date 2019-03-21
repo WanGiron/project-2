@@ -67,7 +67,7 @@ $(document).ready(function () {
             )
     })
 
-    $("#new-child-form").on("submit", function (event) {
+    $("#get-one").on("click", function (event) {
         event.preventDefault();
         var child = $("#child-name-input");
         var childLastName = $("#last-name-input");

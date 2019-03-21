@@ -2,7 +2,7 @@
 <br>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2 "></div>
+        <div class="col-1 "></div>
         <div class="col-1 "><img src="/images/babyfeet.jpg" alt="logo" height="100" width="150"></div>
         <div class="col-6 text-center ">
             <div class="row">
@@ -53,61 +53,68 @@
     </div>
 </nav>
 <br>
-<br>
 
-<h1>Daily Activities</h1>
 
-<div id="title-here">
+<div class="container">
+    <div class="row">
+        <dir class="col-2"> <h1>Daily Activities</h1></dir>
+        <div class="jumbotron col-8">
+            
+            <div id="title-here">
 
-    <h2 id="add-child-name2" value="{{data2}}">{{data2}}</h2>
-    <ul>
-        {{#each data}}
-        <li>
-            <h4>{{this.activity_option}}</h4>
-        </li>
-        <li>{{activity_type}}</li> <span>{{activity_time}}</span>
-        {{/each}}
-    </ul>
+                <h2 id="add-child-name2" value="{{data2}}">{{data2}}</h2>
+                <ul>
+                    {{#each data}}
+                    <p>
+                        <h4>{{this.activity_option}}</h4>
+                    </p>
+                    <h6>{{activity_type}}</h6> <span>{{activity_time}}</span>
+                    {{/each}}
+                </ul>
 
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-
-                <h3 id="add-child-name2" value="{{data2}}" hidden="true">{{data2}}</h3>
-                <h4>Add activity</h4>
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
-            <div class="modal-body">
 
-                <div class="row">
-                    <div class="col-3">
-                        <select id="admin-activity-option" type="text" placeholder="Type activity">
-                            <option aria-placeholder="Select">Select one</option>
-                            <option value="Meals">Meals</option>
-                            <option value="Snack">Snack</option>
-                            <option value="Play time">Play time</option>
-                            <option value="Learnig">Learning</option>
-                            <option value="Nap time">Nap time</option>
-                            <option value="Daiper">Daiper</option>
-                        </select>
-                    </div>
-                    <div class="col-9 text-left">
-                        <input id="add-activity" type="text" placeholder="Type activity">
-                    </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
 
+                            <h3 id="add-child-name2" value="{{data2}}" hidden="true">{{data2}}</h3>
+                            <h4>Add activity</h4>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-3">
+                                    <select id="admin-activity-option" type="text" placeholder="Type activity">
+                                        <option aria-placeholder="Select">Select one</option>
+                                        <option value="Meals">Meals</option>
+                                        <option value="Snack">Snack</option>
+                                        <option value="Play time">Play time</option>
+                                        <option value="Learnig">Learning</option>
+                                        <option value="Nap time">Nap time</option>
+                                        <option value="Daiper">Daiper</option>
+                                    </select>
+                                </div>
+                                <div class="col-9 text-left">
+                                    <input id="add-activity" type="text" placeholder="Type activity">
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-secondary btn-sm" id="get-activity">Add activity</button>
+                        </div>
+                    </div>
                 </div>
-
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline-secondary btn-sm" id="get-activity">Add activity</button>
             </div>
         </div>
+        <dir class="col-2"></dir>
     </div>
 </div>

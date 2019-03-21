@@ -43,6 +43,7 @@ message_from_parent VARCHAR(255) NOT NULL,
 status_message BOOLEAN DEFAULT FALSE NOT NULL,
 PRIMARY KEY(id)
 );
+SELECT * FROM messages;
 
 CREATE TABLE users (
 id INT AUTO_INCREMENT NOT NULL,

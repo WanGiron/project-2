@@ -16,7 +16,7 @@ var newMessage = sequelize.define("messages", {
 
 //Grouping Both model into a single Object
 var message_data = {
-    children: child,
+    Children: child,
     message: newMessage  
 }
 

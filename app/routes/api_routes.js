@@ -21,7 +21,7 @@ module.exports = (app) => {
      //  For ajax request for child info in admin site// 
     //-----------------------------------------------//
     app.get("/api/administrator/child-information", (req, res) => {
-        daycare_data.children.findAll({}).then((results) => {
+        daycare_data.Children.findAll({}).then((results) => {
             //var newData = parse(results);
             res.json(results);
         });
@@ -40,7 +40,7 @@ module.exports = (app) => {
      // Findig one child from admin site for activities//
     //------------------------------------------------//
     app.get("/api/admin-activity-site/:childName", (req, res) => {
-        daycare_data.activities.findAll({
+        daycare_data.Activities.findAll({
             where: {
                 child_name: req.params.childName
             }
@@ -112,7 +112,7 @@ module.exports = (app) => {
         console.log("daycare data:");
         console.log(req.body);
 
-        daycare_data.activities.create({
+        daycare_data.Activities.create({
             child_name: req.body.child_name,
             activity_option: req.body.activity_option,
             activity_type: req.body.activity_type
