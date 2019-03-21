@@ -1,10 +1,11 @@
 var daycare_data = require("../data_base/daycare_data.js");
 var message_data = require("../data_base/message_data.js");
 var express = require("express");
-//var router = express.Router();
 
 module.exports = (app) => {
-    //Administrator site //
+      //-----------------------------------------------//
+     // Administrator site Get all children on screen //
+    //-----------------------------------------------//
     app.get("/api/administrator", (req, res) => {
         daycare_data.children.findAll({}).then((results) => {
             //var newData = parse(results);
@@ -14,18 +15,31 @@ module.exports = (app) => {
         });
     });
 
+      //-----------------------------------------------//
+     //  For ajax request for child info in admin site// 
+    //-----------------------------------------------//
+    app.get("/api/administrator/child-information", (req, res) => {
+        daycare_data.children.findAll({}).then((results) => {
+            //var newData = parse(results);
+            res.json(results);
+        });
+    });
 
-// view messages from admin site / kids //
-    app.post("/api/administrator/messages", (req, res) => {
+      //-----------------------------------------------//
+     // View All messages from parents in admin site  //
+    //-----------------------------------------------//
+    app.get("/api/administrator/messages", (req, res) => {
         message_data.message.findAll({}).then((results2) => {
             res.json(results2);
         });
     });
 
-    // Findig one child for admin site for activities//
+      //------------------------------------------------//   
+     // Findig one child from admin site for activities//
+    //------------------------------------------------//
     app.get("/api/admin-activity-site/:childName", (req, res) => {
         daycare_data.activities.findAll({
-            where:{
+            where: {
                 child_name: req.params.childName
             }
         }).then((results) => {
@@ -37,13 +51,15 @@ module.exports = (app) => {
         });
     });
 
-    //Pulling All messages from admin site kids tab based on name//
+     //-----------------------------------------------------------//   
+    //Pulling All messages from one especific child based on name//
+   //-----------------------------------------------------------//
     app.get("/api/admin-message-site/:childName", (req, res) => {
         //var name = req.params.name;
         message_data.message.findAll({
             where: {
                 child_name: req.params.childName
-              }
+            }
         }).then((results) => {
             var childName = results[0].child_name;
             res.render("messages", {
@@ -53,8 +69,11 @@ module.exports = (app) => {
         });
     });
 
-     //Adding a New Child Into DB for administrator site //
-     app.post("/api/new/child", (req, res) => {
+      //-----------------------------------------------------//   
+     //  Adding a New Child Into DB for administrator site  //
+    //-----------------------------------------------------//
+    
+    app.post("/api/new/child", (req, res) => {
         console.log("daycare data:");
         //console.log(req.body);
         daycare_data.children.create({
@@ -62,54 +81,51 @@ module.exports = (app) => {
             child_last_name: req.body.child_last_name,
             date_of_birth: req.body.date_of_birth,
             parent_name: req.body.parent_name
-        }).then((results)=>{
+        }).then((results) => {
             res.end();
         });
     });
+    
+    //----------------------------------//
+    //        to update boolean
+    //to close messages in admin site //
+    //-------------------------------//
+    app.post("/api/admin-message-delete/:test", (req, res) => {
+        message_data.message.update({
+            status_message: parseInt(req.body.status_message
+                )}, { 
+                    where: { 
+                        id: req.params.test
+                    } 
+                })
+            .then((results) => {
+                res.end();
+            });
+    });
 
-    // Reqding All children in DB
-    // app.get("/api/all-activities", (req, res) => {
-    //     daycare_data.activities.findAll({}).then((results) => {
-    //         //var newData = parse(results);
-    //         res.render("index", {
-    //             data: results
-    //         })
-    //         //console.log(results);
-    //     });
-    // });
-   
-
-    //Adding a New Activities Into DB for administrator site
+     //------------------------------------------------------//   
+    //Adding a New Activities Into DB for administrator site//
+    //-----------------------------------------------------//
     app.post("/api/new/activity", (req, res) => {
         console.log("daycare data:");
         console.log(req.body);
 
         daycare_data.activities.create({
-        child_name: req.body.child_name,
-        activity_option: req.body.activity_option,
-        activity_type: req.body.activity_type
-       
-        }).then((results)=>{
+            child_name: req.body.child_name,
+            activity_option: req.body.activity_option,
+            activity_type: req.body.activity_type
+
+        }).then((results) => {
             res.end();
         });
     });
-           //  This is for client site // 
-    // //Pulling All activities based on child name //
-    // app.get("/api/activity/:name", (req, res) => {
-    //     var name = req.params.name;
-    //     daycare_data.activities.findAll({
-    //         where: {
-    //             child_name: name
-    //           }
-    //     }).then((results) => {
-    //         res.json(results);
-    //     });
-    // });
 
-    // Findig one child for clients site for activities//
+      //----------------------------------------------//
+     //            To get client site                //
+    //----------------------------------------------//
     app.get("/api/client-site/:childName", (req, res) => {
         daycare_data.activities.findAll({
-            where:{
+            where: {
                 child_name: req.params.childName
             }
         }).then((results) => {
@@ -119,22 +135,24 @@ module.exports = (app) => {
                 data2: childName,
             })
 
-            console.log("this is child name"+childName);
-            
+            console.log("this is child name" + childName);
+
         });
-        
+
     });
 
-    //Adding a new message Into DB for client site//
+      //-----------------------------------------------//
+     // For parents to send messages to admin site    //
+    //-----------------------------------------------//
     app.post("/api/new/message", (req, res) => {
         console.log("message-data");
         console.log(req.body);
 
         message_data.message.create({
-        child_name: req.body.child_name,
-        message_from_parent: req.body.message_from_parent,
-  
-        }).then((results)=>{
+            child_name: req.body.child_name,
+            message_from_parent: req.body.message_from_parent,
+
+        }).then((results) => {
             res.end();
         });
     });

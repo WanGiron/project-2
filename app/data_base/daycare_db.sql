@@ -29,6 +29,7 @@ CREATE TABLE messages (
 id INT AUTO_INCREMENT NOT NULL,
 child_name VARCHAR(255) NOT NULL,
 message_from_parent VARCHAR(255) NOT NULL,
+status_message BOOLEAN DEFAULT FALSE NOT NULL,
 PRIMARY KEY(id)
 );
 

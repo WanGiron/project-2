@@ -20,8 +20,7 @@ var activity = sequelize.define("activities", {
 //Grouping Both model into a single Object
 var daycare_data = {
     children: child,
-    activities: activity
-   
+    activities: activity  
 }
 
 module.exports = daycare_data;
