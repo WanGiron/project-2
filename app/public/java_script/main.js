@@ -9,12 +9,13 @@ $(document).ready(function () {
     adminlog.on('click', ()=>{
         modalbody.empty();
         var form = '<form id="signin" name="signin" method="post" action="/adminSignin">';
-        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">Email Address</label></div>';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">User</label></div>';
         form += '<input class="text" name="email" type="text" /></div>';
         form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
         form += '<input name="password" type="password" /></div>';
-        form += '<div class="row justify-content-center"><input class="btn" type="submit" value="Sign In" /></div>';
+        form += '<div class="row justify-content-center"><hr><button><input class="btn" type="submit" value="Sign In" /></button></div>';
         form += '</form>';
+        form += '<div><button id="i-am-parent">I am a parent</button></div>'
         modalbody.html(form);
     });
 
@@ -25,8 +26,34 @@ $(document).ready(function () {
         form += '<input class="text" name="email" type="text" /></div>';
         form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
         form += '<input name="password" type="password" /></div>';
-        form += '<div class="row justify-content-center"><input class="btn" type="submit" value="Sign In" /></div>';
+        form += '<div class="row justify-content-center"><hr><button><input class="btn" type="submit" value="Sign In" /></button></div>';
         form += '</form>';
+        form += '<div><button id="i-am-admin">I am Admin</button></div>'
+        modalbody.html(form);
+    });
+
+    $(document).on('click', "#i-am-parent", ()=>{
+        modalbody.empty();
+        var form = '<form id="signin" name="signin" method="post" action="/ParentSignin">';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">Chil name</label></div>';
+        form += '<input class="text" name="email" type="text" /></div>';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
+        form += '<input name="password" type="password" /></div>';
+        form += '<div class="row justify-content-center"><hr><button><input class="btn" type="submit" value="Sign In" /></button></div>';
+        form += '</form>';
+        form += '<div><button id="i-am-admin">I am Admin</button></div>'
+        modalbody.html(form);
+    });
+    $(document).on('click', "#i-am-admin", ()=>{
+        modalbody.empty();
+        var form = '<form id="signin" name="signin" method="post" action="/adminSignin">';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">User</label></div>';
+        form += '<input class="text" name="email" type="text" /></div>';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
+        form += '<input name="password" type="password" /></div>';
+        form += '<div class="row justify-content-center"><hr><button><input class="btn" type="submit" value="Sign In" /></button></div>';
+        form += '</form>';
+        form += '<div><button id="i-am-parent">I am a parent</button></div>'
         modalbody.html(form);
     });
 
