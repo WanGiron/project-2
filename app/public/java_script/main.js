@@ -13,12 +13,12 @@ $(document).ready(function () {
     })
 
     $("#new-child-form").on("submit", function (event) {
-        event.preventDefault(); 
+        event.preventDefault();
         var child = $("#child-name-input");
         var childLastName = $("#last-name-input");
         var dateOfBirth = $("#dob");
         var parent = $("#add-parent");
-        // Make a new child object
+        // Make a new child object//
         var newChild = {
             child_name: child.val().trim(),
             child_last_name: childLastName.val().trim(),
@@ -34,7 +34,7 @@ $(document).ready(function () {
                 console.log(data);
             });
 
-        // Empty each input box by replacing the value with an empty string
+        // Empty each input box//
         child.val("");
         parent.val("");
         childLastName.val("");
@@ -50,22 +50,20 @@ $(document).ready(function () {
         var activity = $("#admin-activity");
         console.log(activity);
 
-        // Make a new acitivit object
+        // Make a new acitivit object//
         var newActivity = {
             child_name: child2.val().trim(),
             activity_option: activityOption.val().trim(),
             activity_type: activity.val().trim()
         };
 
-        // Send an AJAX POST-request with jQuery
+        // Send an AJAX POST-request 
         $.post("/api/new/activity", newActivity)
-            // On success, run the following code
             .then(function (data) {
-                // Log the data we found
-                console.log(data);
+                //console.log(data);
             });
 
-        // Empty each input box by replacing the value with an empty string
+        // Empty each input box//
         child2.val("");
         activityOption.val("");
         activity.val("");
@@ -79,89 +77,72 @@ $(document).ready(function () {
         var activityOption = $("#admin-activity-option");
         var activity = $("#add-activity");
 
-        // Make a new activity object
+        // Make a new activity object//
         var newActivity = {
             child_name: child2,
             activity_option: activityOption.val().trim(),
             activity_type: activity.val().trim()
         };
 
-        // Send an AJAX POST-request with jQuery
+        // Send an AJAX POST-request//
         $.post("/api/new/activity", newActivity)
-            // On success, run the following code
             .then(function (data) {
-                // Log the data we found
-                console.log(data);
+                //console.log(data);
             });
 
-        // Empty each input box by replacing the value with an empty string
+        // Empty each input box //
         activityOption.val("");
         activity.val("");
 
     });
+
     //creating activities from index adiministrator site // 
     $("#submit-activity").on("click", function (event) {
         event.preventDefault();
         var activity = $("#add-activity").val();
         var child2 = $("#child-name-activity").val();
 
-        // Make a newBook object
+        // Make a new object//
         var newActivity = {
             child_name: child2,
             activity_type: activity
         };
 
-        // Send an AJAX POST-request with jQuery
+        // Send an AJAX POST-request//
         $.post("/api/new/activity", newActivity)
-            // On success, run the following code
             .then(function (data) {
-                // Log the data we found
-                console.log(data);
+                //console.log(data);
             });
 
-        // Empty each input box by replacing the value with an empty string
+        // Empty each input box //
         child2.val(" ");
         activity.val(" ");
 
     });
+
     // TO send message from parent //
     $("#send-message").on("click", function (event) {
         event.preventDefault();
         var child3 = $("h6").text();
         var message = $("#new-message").val();
 
-        // Make a newBook object
+        // Make a object //
         var newMessage = {
             child_name: child3,
             message_from_parent: message
         };
 
-        // Send an AJAX POST-request with jQuery
+        // Send an AJAX POST //
         $.post("/api/new/message", newMessage)
-            // On success, run the following code
             .then(function (data) {
-                // Log the data we found
-                console.log(data);
+                //console.log(data);
             });
 
-        // Empty each input box by replacing the value with an empty string//
+        // Empty each input box//
         message.val("");
 
     });
-
-    
 });
-// var childName = 
-// $.ajax("/api/admin-message-delete/:childName"+ childName, {
-//     type: "PUT",
-//     data: childName
-//   }).then(
-//     function() {
-//       console.log("changed ready to", newDevoured);
-//       // Reload the page to get the updated list
-//       location.reload();
-//     }
-//   );
 
 
 
