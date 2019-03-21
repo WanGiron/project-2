@@ -1,12 +1,15 @@
 var daycare_data = require("../data_base/daycare_data.js");
 var message_data = require("../data_base/message_data.js");
 var express = require("express");
+var passport = require("../config/passport/passport.js");
 //var router = express.Router();
 
 module.exports = (app) => {
-    //Administrator site //
+
+
+   // Administrator site
     app.get("/api/administrator", (req, res) => {
-        daycare_data.children.findAll({}).then((results) => {
+        daycare_data.Children.findAll({}).then((results) => {
             //var newData = parse(results);
             res.render("index", {
                 data: results
@@ -22,9 +25,10 @@ module.exports = (app) => {
         });
     });
 
+
     // Findig one child for admin site for activities//
     app.get("/api/admin-activity-site/:childName", (req, res) => {
-        daycare_data.activities.findAll({
+        daycare_data.Activities.findAll({
             where:{
                 child_name: req.params.childName
             }
@@ -57,7 +61,7 @@ module.exports = (app) => {
      app.post("/api/new/child", (req, res) => {
         console.log("daycare data:");
         //console.log(req.body);
-        daycare_data.children.create({
+        daycare_data.Children.create({
             child_name: req.body.child_name,
             child_last_name: req.body.child_last_name,
             date_of_birth: req.body.date_of_birth,
@@ -84,7 +88,7 @@ module.exports = (app) => {
         console.log("daycare data:");
         console.log(req.body);
 
-        daycare_data.activities.create({
+        daycare_data.Activities.create({
         child_name: req.body.child_name,
         activity_option: req.body.activity_option,
         activity_type: req.body.activity_type
@@ -94,7 +98,7 @@ module.exports = (app) => {
         });
     });
            //  This is for client site // 
-    // //Pulling All activities based on child name //
+    //Pulling All activities based on child name //
     // app.get("/api/activity/:name", (req, res) => {
     //     var name = req.params.name;
     //     daycare_data.activities.findAll({
@@ -102,13 +106,15 @@ module.exports = (app) => {
     //             child_name: name
     //           }
     //     }).then((results) => {
-    //         res.json(results);
+    //         res.render(client);
     //     });
     // });
 
+
+
     // Findig one child for clients site for activities//
     app.get("/api/client-site/:childName", (req, res) => {
-        daycare_data.activities.findAll({
+        daycare_data.Activities.findAll({
             where:{
                 child_name: req.params.childName
             }

@@ -11,10 +11,10 @@ parent_name VARCHAR(255) NOT NULL,
 PRIMARY KEY(id)
 );
 
-INSERT INTO children(child_name, parent_name) VALUE('thomas', 'pascal');
-INSERT INTO children(child_name, parent_name) VALUE('baby', 'will');
-INSERT INTO children(child_name, parent_name) VALUE('rnakada', 'ry');
-INSERT INTO children(child_name, parent_name) VALUE('lydia Savadogo', 'Sidi Savadogo');
+INSERT INTO children(child_name, child_last_name, date_of_birth, parent_name) VALUE('thomas', 'Minoungou', '2010-02-03',  'pascal');
+INSERT INTO children(child_name, child_last_name, date_of_birth, parent_name) VALUE('baby', 'Sava','2011-12-02', 'will');
+INSERT INTO children(child_name, child_last_name, date_of_birth, parent_name) VALUE('rnakada','sage','2010-05-01', 'ry');
+INSERT INTO children(child_name, child_last_name, date_of_birth, parent_name) VALUE('lydia','Savadogo','2009-11-13', 'Sidi Savadogo');
 
 SELECT * FROM children;
 
@@ -27,7 +27,7 @@ activity_time DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
 PRIMARY KEY(id)
 );
 
-INSERT INTO activities(child_name, activity_type) VALUE('baby','Soccer');
+INSERT INTO activities(child_name, activity_option, activity_type) VALUE('baby','Soccer');
 INSERT INTO activities(child_name, activity_type) VALUE('thomas','Programming');
 INSERT INTO activities(child_name, activity_type) VALUE('thomas','lunch');
 INSERT INTO activities(child_name, activity_type) VALUE('rnakada','Afternoon nap');
@@ -43,5 +43,19 @@ message_from_parent VARCHAR(255) NOT NULL,
 PRIMARY KEY(id)
 );
 
-SELECT * FROM messages;
+CREATE TABLE users (
+id INT AUTO_INCREMENT NOT NULL,
+firstname VARCHAR(255) NOT NULL,
+lastname VARCHAR(255) NOT NULL,
+username VARCHAR(255) NOT NULL,
+about TEXT(255),
+email VARCHAR(255),
+password VARCHAR(255) NOT NULL,
+last_login DATE,
+status ENUM('active', 'inactive') DEFAULT 'active',
+PRIMARY KEY(id)
+);
+
+DROP TABLE users;
+SELECT * FROM users;
 -- DELETE  FROM children WHERE id= 1;
