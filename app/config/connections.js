@@ -5,7 +5,7 @@ const config = require(__dirname + "/../config/config.json")[env];
 if (config.use_env_variable) {
     var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
-    var sequelize = new Sequelize("daycare_db", "root", "", {
+    var sequelize = new Sequelize("daycare_db", "root", "root", {
         host:"localhost",
         PORT: port,
         dialect: "mysql",
