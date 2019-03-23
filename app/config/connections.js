@@ -1,7 +1,7 @@
 var Sequelize = require("sequelize");
 var port = process.env.PORT || 3306;
 
-var sequelize = new Sequelize("daycare_db", "root", "Pollito#2", {
+var sequelize = new Sequelize("y8h3lffj9ny2umdf", "rebb4wiu9t4460yi", "bg56mpksdpa6qqnb", {
     host:"localhost",
     PORT: port,
     dialect: "mysql",
