@@ -9,7 +9,7 @@ $(document).ready(function () {
     adminlog.on('click', ()=>{
         modalbody.empty();
         var form = '<form id="signin" name="signin" method="post" action="/adminSignin">';
-        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">User</label></div>';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">Administrator</label></div>';
         form += '<input class="text" name="email" type="text" /></div>';
         form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
         form += '<input name="password" type="password" /></div>';
@@ -47,7 +47,7 @@ $(document).ready(function () {
     $(document).on('click', "#i-am-admin", ()=>{
         modalbody.empty();
         var form = '<form id="signin" name="signin" method="post" action="/adminSignin">';
-        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">User</label></div>';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">Administrator</label></div>';
         form += '<input class="text" name="email" type="text" /></div>';
         form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
         form += '<input name="password" type="password" /></div>';
