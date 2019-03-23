@@ -15,6 +15,34 @@
     margin-bottom: -10px;
 }
 
+.alert-primary{
+    margin-top: 20px;
+}
+
+.form-spaces{
+    margin-top: 3px;
+}
+
+.messge-client-tag{
+    color: rgb(109, 109, 109);
+
+}
+.placeholder-img{
+    width: 300px;
+}
+
+.form-class{
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(255, 255, 255); 
+}
+
+.hide-button{
+   border: none;
+   background: none;
+}
+
 /* .main-child-box{
     background-color: rgb(228, 248, 255);
     border-radius: 4px;

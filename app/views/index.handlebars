@@ -2,9 +2,9 @@
 <br>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2 "></div>
-        <div class="col-1 "><img src="/images/babyfeet.jpg" alt="logo" height="100" width="150"></div>
-        <div class="col-6 text-center ">
+        <div class="col-2"></div>
+
+        <div class="col-9 text-center ">
             <div class="row">
                 <div class="title-first title-box"><span class="letters">L</span></div>
                 <div class="title-second title-box"><span class="letters">I</span></div>
@@ -12,7 +12,7 @@
                 <div class="title-fourth title-box"><span class="letters">T</span></div>
                 <div class="title-fifth title-box"><span class="letters">L</span></div>
                 <div class="title-sixth title-box"><span class="letters">E</span></div>
-                <div class="col-1"></div>
+                <div class="col-2 "><img src="/images/babyfeet.jpg" alt="logo" height="100" width="150"></div>
                 <div class="title-seventh title-box"><span class="letters">F</span></div>
                 <div class="title-eighth title-box"><span class="letters">E</span></div>
                 <div class="title-ninth title-box"><span class="letters">E</span></div>
@@ -22,14 +22,15 @@
                     <div class="title-tenth title-box"><span class="letters">R</span></div> -->
             </div>
         </div>
-        {{!-- <div class="col-1 "></div> --}}
-        <div class="col-3 ">
-            <h1>Admin Access Only</h1>
-        </div>
+        <div class="col-1"></div>
 
     </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="">Administrator Access Only</h1>
+        </div>
+    </div>
 </div>
-<br>
 <br>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     {{!-- <a class="navbar-brand" href="#">Navbar</a> --}}
@@ -49,37 +50,50 @@
 
         </ul>
     </div>
+    <a href="/logout"> <button class="btn-danger btn-sm">Log-Out</button> </a>
 </nav>
 <br>
 <br>
+
+
 <div class="container">
-
-
     <div class="row">
         {{!-- empty div for something else --}}
-        <div class="col-3 text-center div-id-number" id="child-information-div">
+        <div class="col-3 text-center div-id-number">
+            <h2>Children's Info</h2>
+            <hr>
+            <div id="child-information-div">
+                <div>
+                    <h6>Some informartion</h6>
+                    <p>This is the main site for administrator to manage
+                        the day care center.
+                    </p>
+                    <p>you can add new children, update activities,
+                        get messages from parents
+                    </p>
+                </div>
+            </div>
             {{!-- empty --}}
         </div>
-
+        <div class="col-1"></div>
         {{!-- middle colum for children --}}
-        <div class="col-5 text-center div-children-names">
+        <div class="col-4 text-center div-children-names">
             <h2>Children's Name</h2>
             <hr>
             <div class="row">
-                <div class="col-12 text-justify main-child-box">
+                <div class="col-12 main-child-box">
                     <br>
-                    <ul class="scroll-list">
+                    <ul class="scroll-list text-center">
                         {{#each data}}
                         <li>
                             <h4 class="child-activity" value="{{child_name}}">{{child_name}} {{child_last_name}}</h4>
                             <a href="/api/admin-activity-site/{{child_name}}"><button
                                     class="child-activity-info btn btn-outline-secondary btn-sm">Daily
-                                    Acitivities</button></a>
+                                    Activities</button></a>
                             <a href="/api/admin-message-site/{{child_name}}"><button
                                     class="child-activity-info btn btn-outline-info btn-sm">Messages</button></a>
                             <button class="btn btn-outline-success btn-sm child-info" value="{{child_name}}">More
                                 info</button>
-                            </p>
                             <hr>
                         </li>
                         {{/each}}
@@ -88,9 +102,9 @@
             </div>
         </div>
 
-
+        <div class="col-1"></div>
         {{!-- Last colum for messages --}}
-        <div class="col-4 text-center div-parent-name">
+        <div class="col-3 text-center div-parent-name">
             <h2>Message Alert</h2>
             <hr>
             <div class="row">
@@ -108,185 +122,217 @@
 </div>
 </div>
 
-
-
-
-    <div class="modal fade" id="add-child" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add Child
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+{{!-- Account --}}
+<div class="modal fade" id="add-child" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Child
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-justify">
+                <div class="row">
+                    <label for="child-name" class="col-6 form-spaces">Child Name</label>
+                    <input id="child-name-input" class="col-6 form-spaces" type="text" placeholder="Child's name here">
                 </div>
-                <form action="/" id="new-child-form">
-                    <div class="modal-body text-justify">
-                        {{!-- To add new child to data base --}}
-                        <label for="child-name">Child Name</label>
-                        <input id="child-name-input" class="to-validate" type="text" placeholder="Child's name here"
-                            required>
-                        <br>
-                        <label for="child-last-name">Last Name</label>
-                        <input id="last-name-input" class="to-validate" type="text" placeholder="Child's last name here"
-                            required>
-                        <br>
-                        <label for="child-dob">Date of birth</label>
-                        <input id="dob" type="date" class="to-validate" placeholder="yyyy/mm/dd" required>
-                        <br>
-                        <label for="parent-name">Parent Name</label>
-                        <input id="add-parent" type="text" class="to-validate" placeholder="Parent's name here"
-                            required>
+
+                <div class="row">
+                    <label for="child-last-name" class="col-6 form-spaces">Last Name</label>
+                    <input id="last-name-input" class="col-6 form-spaces" type="text"
+                        placeholder="Child's last name here">
+                </div>
+
+                <div class="row">
+                    <label for="child-dob" class="col-6 form-spaces">Date of birth</label>
+                    <input id="dob" class="col-6 form-spaces" type="date" placeholder="yyyy/mm/dd">
+                </div>
+
+                <div class="row">
+                    <label for="parent-name" class="col-6 form-spaces">Parent Name</label>
+                    <input id="add-parent" class="col-6 form-spaces" type="text" placeholder="Parent's name here">
+                </div>
+
+                <button id="get-one" class="btn btn-danger btn-sm"> add child</button>
+                <hr>
+                <h4>Parent logIn</h4>
+                <form id="signup" name="signup" method="post" action="/signup">
+                    <div class="row">
+                        <div class="col-6"><label for="email">Email Address</label></div>
+                        <div class="col-6"><input id="email" class="text" name="email" type="email" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6"><label for="firstname">Firstname</label></div>
+                        <div class="col-6"><input id="firstname" name="firstname" type="text" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6"><label for="lastname">Lastname</label></div>
+                        <div class="col-6"><input id="lastname" name="lastname" type="text" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6"><label for="username">Username (child name)</label></div>
+                        <div class="col-6"><input id="username" name="username" type="text" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6"><label for="password">Password</label></div>
+                        <div class="col-6"><input id="password" name="password" type="password" /></div>
+                    </div>
+                    <hr>
+                    <input id="account" class="btn btn-dark btn-sm" type="submit" value="Sign Up" />
+                    {{!-- <div class="modal-footer">
+
+                    </div> --}}
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Activities --}}
+<div class="modal fade" id="add-activity" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Activity
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <form id="new-activity-form" action="/">
+                    <div class="">
+                        <label for="specific-child">Child Name</label>
+                        <select id="child-name-activity" required>
+                            <option aria-placeholder="select-One">Select One</option>
+                            {{#each data}}
+                            <option value="{{child_name}}">{{child_name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div>
+                        <label for="activity">Activity</label>
+                        <select id="admin-activity-select" type="text" placeholder="Type activity" required>
+                            <option value="text" aria-placeholder="Select one">Select One</option>
+                            <option value="Meals">Meals</option>
+                            <option value="Snack">Snack</option>
+                            <option value="Play time">Play time</option>
+                            <option value="Learning">Learning</option>
+                            <option value="Nap time">Nap time</option>
+                            <option value="Daiper">Daiper</option>
+                        </select>
+                    </div>
+                    <div class="">
+                        <label for="activity">Activity</label>
+                        <input id="admin-activity" class="to-validate" type="text" placeholder="Type activity" required>
                     </div>
                     <div class="modal-footer">
-                        <button id="get-one" type="submit"> add child</button>
+                        <button id="submit-activity" class="btn btn-primary btn-sm" type="submit">Submit</button>
                     </div>
                 </form>
-
             </div>
         </div>
+
     </div>
-
-    <div class="modal fade" id="add-activity" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add Activity
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">
-                    <form id="new-activity-form" action="/">
-                        <div class="">
-                            <label for="specific-child">Child Name</label>
-                            <select id="child-name-activity" required>
-                                <option aria-placeholder="select-One">Select One</option>
-                                {{#each data}}
-                                <option value="{{child_name}}">{{child_name}}</option>
-                                {{/each}}
-                            </select>
-                        </div>
-                        <div>
-                            <label for="activity">Activity</label>
-                            <select id="admin-activity-select" type="text" placeholder="Type activity" required>
-                                <option value="text" aria-placeholder="Select one">Select One</option>
-                                <option value="Meals">Meals</option>
-                                <option value="Snack">Snack</option>
-                                <option value="Play time">Play time</option>
-                                <option value="Learning">Learning</option>
-                                <option value="Nap time">Nap time</option>
-                                <option value="Daiper">Daiper</option>
-                            </select>
-                        </div>
-                        <div class="">
-                            <label for="activity">Activity</label>
-                            <input id="admin-activity" class="to-validate" type="text" placeholder="Type activity"
-                                required>
-                        </div>
-                        <div class="modal-footer">
-                            <button id="submit-activity" class="btn btn-dark" type="submit">Add activity</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 
 
-    <script>
-        //window.setInterval(function() {
-        //$("#messages-here").empty();
-        $.ajax({ url: "/api/administrator/messages", method: "GET" })
-            .then(function (results2) {
-                //console.log(results2);
-                for (i = 0; i < results2.length; i++) {
-                    //console.log(results2[i]);
-                    var messageStatus = results2[i].status_message;
-                    //console.log(messageStatus);
 
-                    if (messageStatus === 0) {
 
-                        var messageDiv = $("<div class='alert alert-success col-12'>");
-                        //var close = $("<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>");
-                        var messageText = $("<p class='message-body'>");
-                        var messageChild = $("<h5 class='message-child-name'>");
-                        var button = $("<button class='close-message btn-sm btn-outline-danger'>");
-                        button.text("close");
-                        button.attr('value', results2[i].id);
-                        messageChild.text(results2[i].child_name);
-                        messageText.text(results2[i].message_from_parent);
-                        messageDiv.append(messageChild);
-                        messageDiv.append(messageText);
-                        //messageDiv.append(close);
-                        messageDiv.append(button);
-                        $("#messages-here").prepend(messageDiv);
+<script>
+    //window.setInterval(function() {
+    //$("#messages-here").empty();
+    $.ajax({ url: "/api/administrator/messages", method: "GET" })
+        .then(function (results2) {
+            //console.log(results2);
+            for (i = 0; i < results2.length; i++) {
+                //console.log(results2[i]);
+                var messageStatus = results2[i].status_message;
+                //console.log(messageStatus);
 
-                        //for select tab//
-                        var selectTag = $("<select id='child-name-activity'>");
-                        var optionTag = $("<option>");
-                        optionTag.text(results2[i].child_name);
-                        selectTag.append(optionTag);
-                        $("#select-option-here").append(selectTag);
-                    }
+                if (messageStatus === 0) {
+
+                    var messageDiv = $("<div class='alert alert-success col-12'>");
+                    //var close = $("<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>");
+                    var messageText = $("<p class='message-body'>");
+                    var messageChild = $("<h5 class='message-child-name'>");
+                    var button = $("<button class='close-message btn-sm btn-outline-danger'>");
+                    button.text("close");
+                    button.attr('value', results2[i].id);
+                    messageChild.text(results2[i].child_name);
+                    messageText.text(results2[i].message_from_parent);
+                    messageDiv.append(messageChild);
+                    messageDiv.append(messageText);
+                    //messageDiv.append(close);
+                    messageDiv.append(button);
+                    $("#messages-here").prepend(messageDiv);
+
+                    //for select tab//
+                    var selectTag = $("<select id='child-name-activity'>");
+                    var optionTag = $("<option>");
+                    optionTag.text(results2[i].child_name);
+                    selectTag.append(optionTag);
+                    $("#select-option-here").append(selectTag);
                 }
-            });
-        //}, 1000)
+            }
+        });
+    //}, 1000)
 
-        $(".child-info").on("click", function (event) {
-            event.preventDefault();
-            $("#child-information-div").empty();
-            var childInfoValue = $(this).val();
-            $.ajax({ url: "/api/administrator/child-information", method: "GET" })
-                .then(function (results) {
-                    //console.log(results);
+    $(".child-info").on("click", function (event) {
+        event.preventDefault();
+        $("#child-information-div").empty();
+        var childInfoValue = $(this).val();
+        $.ajax({ url: "/api/administrator/child-information", method: "GET" })
+            .then(function (results) {
+                //console.log(results);
 
-                    var results1 = results;
-                    var item = results1.filter(function (results1) {
-                        return results1.child_name === childInfoValue;
-                    });
-
-                    //console.log(childInfoValue);
-                    var newDiv = $("<div class='child-info'>");
-                    var line = $("<li>");
-                    line.text("Name: " + item[0].child_name);
-                    var line1 = $("<li>");
-                    line1.text("Last Name: " + item[0].child_last_name);
-                    var line2 = $("<li>");
-                    line2.text("Date of Birth: " + item[0].date_of_birth);
-                    var line3 = $("<li>");
-                    line3.text("Parent's Name: " + item[0].parent_name);
-                    newDiv.append(line, line1, line2, line3);
-                    $("#child-information-div").append(newDiv);
-
+                var results1 = results;
+                var item = results1.filter(function (results1) {
+                    return results1.child_name === childInfoValue;
                 });
 
-        })
+                //console.log(childInfoValue);
+                var newDiv = $("<div class='child-info alert alert-primary'>");
+                var line = $("<h5>");
+                line.text("Name: " + item[0].child_name);
+                var line1 = $("<p>");
+                line1.text("Last Name: " + item[0].child_last_name);
+                var line2 = $("<p>");
+                line2.text("Date of Birth: " + item[0].date_of_birth);
+                var line3 = $("<p>");
+                line3.text("Parent's Name: " + item[0].parent_name);
+                var hr = $("<hr>");
+                newDiv.append(line, hr, line1, line2, line3);
+                $("#child-information-div").append(newDiv);
+
+            });
+
+    })
 
 
-        $(document).on("click", ".close-message", changeValue);
-        function changeValue() {
-            var test = $(this).val();
+    $(document).on("click", ".close-message", changeValue);
+    function changeValue() {
+        var test = $(this).val();
 
-            var message = {
-                status_message: 1
-            }
-
-            // Send the PUT request.
-            $.ajax({
-                type: "POST",
-                url: "/api/admin-message-delete/" + test,
-                data: message
-            })
-                .then(function () {
-                    location.reload();
-                }
-                );
-
+        var message = {
+            status_message: 1
         }
 
-    </script>
+        // Send the PUT request.
+        $.ajax({
+            type: "POST",
+            url: "/api/admin-message-delete/" + test,
+            data: message
+        })
+            .then(function () {
+                location.reload();
+            }
+            );
+
+    }
+
+</script>

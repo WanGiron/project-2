@@ -2,6 +2,61 @@
 $(document).ready(function () {
     console.log("ready!");
 
+    var adminlog = $("#adminlog");
+    var parent = $("#parent");
+    var modalbody = $("#modalbody");
+
+    adminlog.on('click', ()=>{
+        modalbody.empty();
+        var form = '<form id="signin" name="signin" method="post" action="/adminSignin">';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">Administrator</label></div>';
+        form += '<input class="text" name="email" type="text" /></div>';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
+        form += '<input name="password" type="password" /></div>';
+        form += '<div class="row justify-content-center"><hr><button class="hide-button"><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
+        form += '</form>';
+        form += '<div><button class="btn btn-dark btn-sm" id="i-am-parent">I am a parent</button></div>'
+        modalbody.html(form);
+    });
+
+    parent.on('click', ()=>{
+        modalbody.empty();
+        var form = '<form id="signin" name="signin" method="post" action="/ParentSignin">';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">User Name</label></div>';
+        form += '<input class="text" name="email" type="text" /></div>';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
+        form += '<input name="password" type="password" /></div>';
+        form += '<div class="row justify-content-center"><hr><buttonclass="hide-button" ><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
+        form += '</form>';
+        form += '<div><button class="btn btn-dark btn-sm" id="i-am-admin">Administrator</button></div>'
+        modalbody.html(form);
+    });
+
+    $(document).on('click', "#i-am-parent", ()=>{
+        modalbody.empty();
+        var form = '<form id="signin" name="signin" method="post" action="/ParentSignin">';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">User Name</label></div>';
+        form += '<input class="text" name="email" type="text" /></div>';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
+        form += '<input name="password" type="password" /></div>';
+        form += '<div class="row justify-content-center"><hr><button class="hide-button"><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
+        form += '</form>';
+        form += '<div><button class="btn btn-dark btn-sm" id="i-am-admin">Administrator</button></div>'
+        modalbody.html(form);
+    });
+    $(document).on('click', "#i-am-admin", ()=>{
+        modalbody.empty();
+        var form = '<form id="signin" name="signin" method="post" action="/adminSignin">';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">Administrator</label></div>';
+        form += '<input class="text" name="email" type="text" /></div>';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
+        form += '<input name="password" type="password" /></div>';
+        form += '<div class="row justify-content-center"><hr><button class="hide-button"><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
+        form += '</form>';
+        form += '<div><button class="btn btn-dark btn-sm" id="i-am-parent">I am a parent</button></div>'
+        modalbody.html(form);
+    });
+
     //script for client site //
     $("#submit-child-request").on("click", (event) => {
         event.preventDefault();
@@ -12,7 +67,7 @@ $(document).ready(function () {
             )
     })
 
-    $("#new-child-form").on("submit", function (event) {
+    $("#get-one").on("click", function (event) {
         event.preventDefault();
         var child = $("#child-name-input");
         var childLastName = $("#last-name-input");
@@ -23,7 +78,8 @@ $(document).ready(function () {
             child_name: child.val().trim(),
             child_last_name: childLastName.val().trim(),
             date_of_birth: dateOfBirth.val().trim(),
-            parent_name: parent.val().trim()
+            parent_name: parent.val().trim(),
+
         };
 
         // Send an AJAX POST-request with jQuery
@@ -41,6 +97,31 @@ $(document).ready(function () {
         dateOfBirth.val("");
 
     });
+
+    /// Account Creation
+
+    // $("#account").on('click', (even)=>{
+    //     alert('test okay');
+    //     var email = $("#email");
+    //     var firstname = $("#firstname");
+    //     var lastname = $("#lastname");
+    //     var password = $("#password");
+
+    //     var new_account = {
+    //         email: email,
+    //         firstname: firstname,
+    //         lastname: lastname,
+    //         password: password
+    //     };
+    //     console.log(new_account);
+    //     $.post("/api/new/account", new_account)
+    //     // On success, run the following code
+
+    //     .then(function (data) {
+    //         // Log the data we found
+    //         console.log(data);
+    //     });
+    // });
 
     //creating activities from index adiministrator site // 
     $("#submit-activity").on("click", function (event) {
