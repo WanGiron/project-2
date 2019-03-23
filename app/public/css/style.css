@@ -39,8 +39,8 @@
 }
 
 .hide-button{
-    width: 20px;
-    height: 10px;
+   border: none;
+   background: none;
 }
 
 /* .main-child-box{
