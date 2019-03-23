@@ -38,6 +38,11 @@
     background-color: rgb(255, 255, 255); 
 }
 
+.hide-button{
+    width: 20px;
+    height: 10px;
+}
+
 /* .main-child-box{
     background-color: rgb(228, 248, 255);
     border-radius: 4px;

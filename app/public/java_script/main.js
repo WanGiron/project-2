@@ -13,35 +13,35 @@ $(document).ready(function () {
         form += '<input class="text" name="email" type="text" /></div>';
         form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
         form += '<input name="password" type="password" /></div>';
-        form += '<div class="row justify-content-center"><hr><button><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
+        form += '<div class="row justify-content-center"><hr><button class="hide-button"><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
         form += '</form>';
-        form += '<div><button id="i-am-parent">I am a parent</button></div>'
+        form += '<div><button class="btn btn-dark btn-sm" id="i-am-parent">I am a parent</button></div>'
         modalbody.html(form);
     });
 
     parent.on('click', ()=>{
         modalbody.empty();
         var form = '<form id="signin" name="signin" method="post" action="/ParentSignin">';
-        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">Chil name</label></div>';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">User Name</label></div>';
         form += '<input class="text" name="email" type="text" /></div>';
         form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
         form += '<input name="password" type="password" /></div>';
-        form += '<div class="row justify-content-center"><hr><button><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
+        form += '<div class="row justify-content-center"><hr><buttonclass="hide-button" ><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
         form += '</form>';
-        form += '<div><button id="i-am-admin">I am Admin</button></div>'
+        form += '<div><button class="btn btn-dark btn-sm" id="i-am-admin">Administrator</button></div>'
         modalbody.html(form);
     });
 
     $(document).on('click', "#i-am-parent", ()=>{
         modalbody.empty();
         var form = '<form id="signin" name="signin" method="post" action="/ParentSignin">';
-        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">Chil name</label></div>';
+        form += '<div class="row justify-content-center"><div class="col-4"><label for="email">User Name</label></div>';
         form += '<input class="text" name="email" type="text" /></div>';
         form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
         form += '<input name="password" type="password" /></div>';
-        form += '<div class="row justify-content-center"><hr><button><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
+        form += '<div class="row justify-content-center"><hr><button class="hide-button"><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
         form += '</form>';
-        form += '<div><button id="i-am-admin">I am Admin</button></div>'
+        form += '<div><button class="btn btn-dark btn-sm" id="i-am-admin">Administrator</button></div>'
         modalbody.html(form);
     });
     $(document).on('click', "#i-am-admin", ()=>{
@@ -51,9 +51,9 @@ $(document).ready(function () {
         form += '<input class="text" name="email" type="text" /></div>';
         form += '<div class="row justify-content-center"><div class="col-4"><label for="password">Password</label></div>';
         form += '<input name="password" type="password" /></div>';
-        form += '<div class="row justify-content-center"><hr><button><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
+        form += '<div class="row justify-content-center"><hr><button class="hide-button"><input class="btn btn-dark btn-sm" type="submit" value="Sign In" /></button></div>';
         form += '</form>';
-        form += '<div><button id="i-am-parent">I am a parent</button></div>'
+        form += '<div><button class="btn btn-dark btn-sm" id="i-am-parent">I am a parent</button></div>'
         modalbody.html(form);
     });
 
