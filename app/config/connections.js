@@ -4,7 +4,6 @@ var port = process.env.PORT || 3306;
 // var config = require(__dirname + "/config.json")[env];
 
 // var sequelize = new Sequelize(process.env[config.use_env_variable],{
-//     host:"otwsl2e23jrxcqvx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
 //     PORT: port,
 //     dialect: "mysql",
 //     pool: {
@@ -17,8 +16,8 @@ var port = process.env.PORT || 3306;
 //     }
 //  });
 
-var sequelize = new Sequelize("y8h3lffj9ny2umdf", "rebb4wiu9t4460yi", "wedq1n8maiorl5q6", {
-    host:"otwsl2e23jrxcqvx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+var sequelize = new Sequelize("", "", "", {
+    host:"",
     PORT: port,
     dialect: "mysql",
     pool: {
